@@ -1,1147 +1,1496 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
 <head>
-  <meta charset="utf-8">
-  
-  <title>WoodyBuendia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Woody Buendia">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Woody Buendia">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="WoodyBuendia">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="WoodyBuendia">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Woody Buendia">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternative" href="/atom.xml" title="WoodyBuendia" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.png">
-  
-  
-      
-<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
+    <title>The Blog of WoodyBuendia</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <!-- 加载特效 -->
-    <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
-  <script>
-      var yiliaConfig = {
-          rootUrl: '/',
-          fancybox: true,
-          animate: true,
-          isHome: true,
-          isPost: false,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
-<meta name="generator" content="Hexo 4.2.1"></head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/head.jpg" class="js-avatar">
-            
-        </a>
-
-        <hgroup>
-          <h1 class="header-author"><a href="/" title="Hi Mate">Woody Buendia</a></h1>
-        </hgroup>
-
-        
-        
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
-
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/Home">博客首页</a></li>
-                        
-                            <li><a href="/works">作品展示</a></li>
-                        
-                            <li><a href="/about">留言打卡</a></li>
-                        
-                            <li><a href="/FrontEndGuide">前端导航</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fl mail" target="_blank" href="/tinywoody@126.com" title="mail">mail</a>
-                            
-                                <a class="fl github" target="_blank" href="https://github.com/WoodyBuendia" title="github">github</a>
-                            
-                                <a class="fl zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-                            
-                                <a class="fl weibo" target="_blank" href="#" title="weibo">weibo</a>
-                            
-                                <a class="fl google" target="_blank" href="#" title="google">google</a>
-                            
-                                <a class="fl twitter" target="_blank" href="#" title="twitter">twitter</a>
-                            
-                                <a class="fl linkedin" target="_blank" href="#" title="linkedin">linkedin</a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/CST/" style="font-size: 10px;">CST</a> <a href="/tags/HFSS/" style="font-size: 10px;">HFSS</a> <a href="/tags/HFSS-Matlab-API/" style="font-size: 20px;">HFSS-Matlab API</a> <a href="/tags/RFID/" style="font-size: 10px;">RFID</a> <a href="/tags/antenna-magus/" style="font-size: 10px;">antenna magus</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/pytorch/" style="font-size: 10px;">pytorch</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">图像目标检测</a> <a href="/tags/%E5%A4%A9%E7%BA%BF/" style="font-size: 20px;">天线</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">工作笔记</a> <a href="/tags/%E7%94%B5%E6%A1%A5/" style="font-size: 10px;">电桥</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">记录</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 10px;">资源</a> <a href="/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">遗传算法</a>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://WoodyBuendia.github.io/">name</a>
-                    
-                    </div>
-                </section>
-                
-
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">My Name is Woody Buendia.</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Woody Buendia</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="Me">Woody Buendia</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/Home">博客首页</a></li>
-                
-                    <li><a href="/works">作品展示</a></li>
-                
-                    <li><a href="/about">留言打卡</a></li>
-                
-                    <li><a href="/FrontEndGuide">前端导航</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a class="mail" target="_blank" href="/tinywoody@126.com" title="mail">mail</a>
-                    
-                        <a class="github" target="_blank" href="https://github.com/WoodyBuendia" title="github">github</a>
-                    
-                        <a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-                    
-                        <a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-                    
-                        <a class="google" target="_blank" href="#" title="google">google</a>
-                    
-                        <a class="twitter" target="_blank" href="#" title="twitter">twitter</a>
-                    
-                        <a class="linkedin" target="_blank" href="#" title="linkedin">linkedin</a>
-                    
-                </div>
-            </nav>
-        </header>                
-    </div>
-</nav>
-      <div class="body-wrap">
-  
-    <article id="post-ansys-hfss-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-ef-bc-9a-e4-bb-a5-e8-80-a6-e5-90-88-e5-be-ae-e5-b8-a6-e7-ba-bf-e7-94-b5-e6-a1-a5-e4-b8-ba-e4-be-8b" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/18/ansys-hfss-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-ef-bc-9a-e4-bb-a5-e8-80-a6-e5-90-88-e5-be-ae-e5-b8-a6-e7-ba-bf-e7-94-b5-e6-a1-a5-e4-b8-ba-e4-be-8b/" class="article-date">
-      <time datetime="2019-07-18T07:13:12.000Z" itemprop="datePublished">2019-07-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/18/ansys-hfss-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-ef-bc-9a-e4-bb-a5-e8-80-a6-e5-90-88-e5-be-ae-e5-b8-a6-e7-ba-bf-e7-94-b5-e6-a1-a5-e4-b8-ba-e4-be-8b/">Ansys HFSS优化工具箱的使用：以耦合微带线电桥为例</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>为说明Ansys Electronics Desktop（即HFSS俗称海飞丝）中优化工具箱（Optimization tool）的使用，通过Optimization中的遗传算法（GA）为例，优化耦合微带线电桥。</p>
-<p>HFSS更新至2019 R2（up to data 20190718）,不过我还在用2019 R1，新版本没找到。</p>
-<p>网友投稿，HFSS 2019R2： <strong>Ansys Electronics Dsktop 2019 R2 Win64</strong><br>链接: <a href="https://pan.baidu.com/s/1Kibax1UOfBEYQfBRf8tOBA" target="_blank" rel="noopener">https://pan.baidu.com/s/1Kibax1UOfBEYQfBRf8tOBA</a> 提取码: 91zv</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-17.png" alt=""></p>
-<p>HFSS 俗称海飞丝</p>
-<h2 id="耦合带线"><a href="#耦合带线" class="headerlink" title="耦合带线"></a>耦合带线</h2><p>四端口耦合带线电桥，原理请查阅相关资料，模型如下图：</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-18-1024x530.png" alt=""></p>
-<p>耦合线电桥</p>
-<h2 id="HFSS优化工具箱"><a href="#HFSS优化工具箱" class="headerlink" title="HFSS优化工具箱"></a>HFSS优化工具箱</h2><p>HFSS在使用优化工具箱之前，照例，依旧需要将设计到的尺寸用参数变量表示，并且需要在菜单中，将需要优化的参数勾选，才可以在Optimization选项卡中修改。</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-19-1024x643.png" alt=""></p>
-<p>添加优化变量，设置数值范围</p>
-<h3 id="新建优化"><a href="#新建优化" class="headerlink" title="新建优化"></a>新建优化</h3><p>添加了变量之后，在左侧工程树中，选中Optimistics，单击右键，添加优化，选择Optimization，如下图所示：</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-20.png" alt=""></p>
-<p>添加优化</p>
-<p>当然，添加之前需要正常设置求解和扫频等必须步骤。</p>
-<p>新建优化之后，在Setup Optimization选项卡中，设置优化目标、求解算法、变量等。</p>
-<p>这里电桥的优化仅涉及到S参数，因此较为简单。优化目标（即Cost function）可以通过表达式，表示复杂的目标，根据项目实际自己摸索。</p>
-<h3 id="Optimizer选择和设置"><a href="#Optimizer选择和设置" class="headerlink" title="Optimizer选择和设置"></a>Optimizer选择和设置</h3><p>这里选择Optimizer为MATLAB，选择之后在右侧Setup中可以选择算法，需要注意的是优化参数的个数需要手动填入。<strong>注意看，在Optimizer下方有个Max No of Iterations，指的是优化最大迭代步数，</strong>默认1000。通常建议默认就行，优化开始后观察cost变化曲线，如果几百步内没有下降趋势，那么一般是由于优化变量或参数范围不合理导致，继续优化也没有意义了。</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-21-1024x600.png" alt=""></p>
-<h3 id="添加目标函数Cost-Function"><a href="#添加目标函数Cost-Function" class="headerlink" title="添加目标函数Cost Function"></a>添加目标函数Cost Function</h3><p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-22-1024x639.png" alt=""></p>
-<p>设置目标</p>
-<h3 id="选择变量"><a href="#选择变量" class="headerlink" title="选择变量"></a>选择变量</h3><p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-23-1024x505.png" alt=""></p>
-<p>选择变量</p>
-<p>注意，这里的变量不得和第一步，全局变量的范围冲突。</p>
-<p>点击确定后，即可通过左侧工程树下的Optimization右键——分析，计算了。</p>
-<p><img src="blob:http://woodybuendia.site/5efbd207-f0f2-4948-80f3-a76186678986" alt=""></p>
-<h2 id="全局设置：HFSS中添加MATLAB路径"><a href="#全局设置：HFSS中添加MATLAB路径" class="headerlink" title="全局设置：HFSS中添加MATLAB路径"></a>全局设置：HFSS中添加MATLAB路径</h2><p>Tools——Options——General Option</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-24-1024x618.png" alt=""></p>
-<p>将MATLAB路径添加值HFSS全局设置中。</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-25.png" alt=""></p>
-<p>如此，优化时，HFSS将会自动打开一个MATLAB的新窗口，将每次仿真的结果传递给MATLAB中，由MATLAB optimization tool工具箱中的遗传算法GA来进行迭代，将下一次参数的值传给HFSS，进行下一轮仿真。</p>
-<h2 id="优化结果查看"><a href="#优化结果查看" class="headerlink" title="优化结果查看"></a>优化结果查看</h2><p>在左侧工程树optimization选中，右击，选择View Analysis Result即可查看结果，HFSS会动态显示cost变化，如果cost能随迭代步数显著下降，说明选择的变量是关键变量，且变量优化的范围合理。否则，需要调整优化设置。</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E5%A4%A9%E7%BA%BF%E4%B8%8E%E5%BE%AE%E6%B3%A2/">天线与微波</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HFSS/" rel="tag">HFSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E6%A1%A5/" rel="tag">电桥</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/" rel="tag">遗传算法</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-cst-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-e4-bb-a5-e5-88-86-e6-94-af-e7-ba-bf-e7-94-b5-e6-a1-a5-e7-9a-84-e4-bc-98-e5-8c-96-e4-b8-ba-e4-be-8b" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/18/cst-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-e4-bb-a5-e5-88-86-e6-94-af-e7-ba-bf-e7-94-b5-e6-a1-a5-e7-9a-84-e4-bc-98-e5-8c-96-e4-b8-ba-e4-be-8b/" class="article-date">
-      <time datetime="2019-07-18T06:42:03.000Z" itemprop="datePublished">2019-07-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/18/cst-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-e4-bb-a5-e5-88-86-e6-94-af-e7-ba-bf-e7-94-b5-e6-a1-a5-e7-9a-84-e4-bc-98-e5-8c-96-e4-b8-ba-e4-be-8b/">CST优化工具箱的使用-以分支线电桥的优化为例</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>为了说明CST优化工具箱的使用，本文以分支线电桥的优化为例，通过CST优化工具箱中的遗传算法优化电桥S参数，简要说明CST优化工具箱的使用。</p>
-<h2 id="分支线电桥：四端口微带耦合线电桥"><a href="#分支线电桥：四端口微带耦合线电桥" class="headerlink" title="分支线电桥：四端口微带耦合线电桥"></a>分支线电桥：四端口微带耦合线电桥</h2><p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-9.png" alt=""></p>
-<p>指标要求：</p>
-<p>工作频率：L；</p>
-<p>耦合度：3dB；插入损耗：≤0.3dB；</p>
-<p>端口电压驻波比：≤1.5；</p>
-<p>端口隔离度：≥18dB；</p>
-<p>端口不平衡度：≤±0.2dB；</p>
-<p>端口相位不平衡度：≤90°±3°；</p>
-<p>在CST中建模如下：</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-10.png" alt=""></p>
-<p>介质材料：罗杰斯4350B，介电常数3.66；介质板厚度0.508mm</p>
-<h2 id="优化设置"><a href="#优化设置" class="headerlink" title="优化设置"></a>优化设置</h2><p>首先，建模时要将所有变量参数化，即：使用变量表达各个尺寸。</p>
-<p>在选项卡中点击Optimizer，在setting页面选择需要优化的参数，制定各个参数的变化范围，即min和max值。在Algorith下拉菜单中，可以选择使用的优化算法，对应的属性在右侧。General Properties中可以设置需要保存的优化结果，如果发现CST优化时，没有保存所有的结果，可在此处修改成保存全部。</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-11-1024x547.png" alt=""></p>
-<p>点击Goals选项卡，设置优化目标，根据项目求设定优化目标。这里按照电桥的要求，设置S参数为目标。</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-12-1024x754.png" alt=""></p>
-<p>点击Ok保存，点击Start开始运行。</p>
-<p>注意，如果使用分布式计算，这里可以在第一行右侧的Acceleration修改Distributed Computing(DC)设置，将优化参数数量提高到所有可用线程数量。这样可以并行计算多组参数，大大提高效率。</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-13-1024x794.png" alt=""></p>
-<h2 id="优化结果"><a href="#优化结果" class="headerlink" title="优化结果"></a>优化结果</h2><p>S参数（端口耦合度与隔离度）</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-15-1024x313.png" alt=""></p>
-<p>优化过程中的Goals变化可在左侧工程树中找到，如图：</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-16-1024x411.png" alt=""></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E5%A4%A9%E7%BA%BF%E4%B8%8E%E5%BE%AE%E6%B3%A2/">天线与微波</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CST/" rel="tag">CST</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8ffrp-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/15/e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8ffrp-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b/" class="article-date">
-      <time datetime="2019-07-15T09:13:11.000Z" itemprop="datePublished">2019-07-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/15/e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8ffrp-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b/">内网穿透frp部署记录总结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>根据网上教程摸索出来一套可用的方法，记录如下。</p>
-<h2 id="frp介绍"><a href="#frp介绍" class="headerlink" title="frp介绍"></a>frp介绍</h2><p>frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。</p>
-<p>项目地址：<a href="https://github.com/fatedier/frp/blob/master/README_zh.md" target="_blank" rel="noopener">https://github.com/fatedier/frp/blob/master/README_zh.md</a></p>
-<h2 id="ubuntu上搭建frp"><a href="#ubuntu上搭建frp" class="headerlink" title="ubuntu上搭建frp"></a>ubuntu上搭建frp</h2><p>本人ubuntu小白，根据网上教程摸索出来一套可用的方法，记录如下。防止再次检索。</p>
-<p>一键安装：<a href="https://github.com/MvsCode/frp-onekey" target="_blank" rel="noopener">https://github.com/MvsCode/frp-onekey</a></p>
-<p><strong><em><a href="https://github.com/MvsCode/frp-onekey" target="_blank" rel="noopener">Frps服务端一键配置脚本，最新版本：0.27.1</a></em></strong></p>
-<p>ubuntu安装方法：</p>
-<p>以管理员身份运行：(ubuntu中，sudo代表以管理员身份运行)</p>
-<pre><code>sudo wget https://raw.githubusercontent.com/MvsCode/frp-onekey/master/install-frps.sh -O ./install-frps.sh
-
-sudo chmod 700 ./install-frps.sh
-sudo ./install-frps.sh install</code></pre><p>frps默认安装路径：/usr/local/frps/</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-2.png" alt=""></p>
-<p>根据提示一步一步完成配置，默认选项即可。可修改端口以防止扫描。</p>
-<p>配置完成之后，会提示配置信息，主要保存。尤其是dashboard登陆密码和token。</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-4.png" alt=""></p>
-<h2 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h2><p>根据平台不同，下载不同客户端，修改客户端中frpc.ini文件，需要填写的信息如下：</p>
-<pre><code>[common]
-server_addr = 35.229.160.101
-server_port = 65500
-token = ************
-
-[IoT_223]
-type = tcp
-local_ip = 0.0.0.0
-local_port = 3389
-remote_port = 6006
-
-[S223]
-type = http
-local_port = 8080
-subdomain =iot</code></pre><p>上述frpc.ini配置中，common中的token为服务器的token。第二项[IoT_223]为当前客户端的名称，可以任意修改。本地端口和远程端口按照需要修改，这里3389为本地远程连接端口，服务器远程端口6006为任意可用端口。</p>
-<p>这样，客户端在frpc.exe文件夹中运行cmd，cmd中输入fprc即可。显示如下信息即表明运行成功：</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-3-1024x480.png" alt=""></p>
-<h2 id="frp管理平台"><a href="#frp管理平台" class="headerlink" title="frp管理平台"></a>frp管理平台</h2><p>我的管理平台为：<a href="http://woodybuendia.site:****">http://woodybuendia.site:****</a></p>
-<p>服务器配置中，dashboard意为管理平台，打开方式为在浏览器中输入IP/域名：dashboardPort</p>
-<p>打开之后需要输入用户名和密码，打开之后的效果如下：默认显示Overview</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-5-1024x514.png" alt=""></p>
-<p>在左侧点击TCP可以看到当前连接的客户端</p>
-<h2 id="frp内网穿透的意义"><a href="#frp内网穿透的意义" class="headerlink" title="frp内网穿透的意义"></a>frp内网穿透的意义</h2><h3 id="1-远程桌面"><a href="#1-远程桌面" class="headerlink" title="1.远程桌面"></a>1.远程桌面</h3><p>例如：客户端（公司内网的计算机），需要在公司以外的地方访问，传统方法可以使用TeamView软件等，进行连接。</p>
-<p>使用frp内网穿透之后，可以直接在windows自带的远程桌面中，输入****.woodybuendia.site:****</p>
-<p>注意到，这里的前缀和端口是frpc.ini文件中自己配置的。</p>
-<h3 id="2-远程访问家里-办公室的NAS"><a href="#2-远程访问家里-办公室的NAS" class="headerlink" title="2.远程访问家里/办公室的NAS"></a>2.远程访问家里/办公室的NAS</h3><p>使用NAS的同学知道，在局域网中的NAS设备，是通过固定IP访问。如果使用frp内网穿透，可以直接使用次级域名加端口形式直接访问，比如我家里的NAS可以任何网络，在浏览器中输入地址： <a href="http://***.woodybuendia.site****/" target="_blank" rel="noopener">http://***.woodybuendia.site:****/</a> 访问。</p>
-<p>该项属于：<a href="https://github.com/fatedier/frp/blob/master/README_zh.md#%E9%80%9A%E8%BF%87%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E9%83%A8%E7%BD%B2%E4%BA%8E%E5%86%85%E7%BD%91%E7%9A%84-web-%E6%9C%8D%E5%8A%A1" target="_blank" rel="noopener">通过自定义域名访问部署于内网的 web 服务</a></p>
-<h2 id="frp服务背景运行和自动启动"><a href="#frp服务背景运行和自动启动" class="headerlink" title="frp服务背景运行和自动启动"></a>frp服务背景运行和自动启动</h2><p>windows平台：<a href="https://www.jianshu.com/p/a6e9627dbe29" target="_blank" rel="noopener">设置开机启动和后台运行</a></p>
-<p>NAS: <a href="https://blog.ysoup.org/tech/synology-nas-frp-frpc.html" target="_blank" rel="noopener">https://blog.ysoup.org/tech/synology-nas-frp-frpc.html</a></p>
-<p>Ubuntu: <a href="https://free-e.net/109" target="_blank" rel="noopener">https://free-e.net/109</a></p>
-<h2 id="Frp与架设在Google-Cloud-platform（GCP）上的VPS端口问题"><a href="#Frp与架设在Google-Cloud-platform（GCP）上的VPS端口问题" class="headerlink" title="Frp与架设在Google Cloud platform（GCP）上的VPS端口问题"></a>Frp与架设在Google Cloud platform（GCP）上的VPS端口问题</h2><p>在将VPS送Linode迁徙到Google Cloud platform（GCP）上时，重新部署Frp，总是遇到配置完成之后无法访问 frp的dashboard ，经查证，是由于GCP实例主机的防火墙没有开发对应端口导致，GCP默认只开放几个常用端口，需要在GCP控制面板配置防火墙出入站规则。</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-8-1024x488.png" alt=""></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91/">计算机与互联网</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-e7-bd-91-e7-ab-99-e7-bb-b4-e6-8a-a4-e8-ae-b0-e5-bd-95" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/09/e7-bd-91-e7-ab-99-e7-bb-b4-e6-8a-a4-e8-ae-b0-e5-bd-95/" class="article-date">
-      <time datetime="2019-07-09T02:53:59.000Z" itemprop="datePublished">2019-07-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/09/e7-bd-91-e7-ab-99-e7-bb-b4-e6-8a-a4-e8-ae-b0-e5-bd-95/">网站维护记录</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>20190629 ：网站迁移至Google Cloud Platform；使用Apache2+PHP+MySq构架。网站内容通过插件 <strong>UpdraftPlus-备份/恢复</strong> 完整从Lionde VPS迁移至GCP。</p>
-<p>20190708：新增分享页面、关注社交账号功能，使用WordPress插件**<br>Share Buttons by AddThis** 实现。</p>
-<p>20190709：新增PDF在线/页面内预览功能，提高网站PDF文件阅读体验。使用插件： <strong>Algori PDF Viewer Lite</strong> ，示例页面：<a href="http://woodybuendia.site/?p=175" target="_blank" rel="noopener">http://woodybuendia.site/?p=175</a></p>
-<p>20190709：之前在网站后台看到有非中文地区IP访问，并使用Google翻译查看本网站，为方便非中文访客，使用 <strong>GTranslate</strong> 插件提供页面内翻译功能；晚上浏览网站时，发现打开速度异常缓慢，使用chrome开发者模式发现是插件访问google翻译服务器所致，暂停插件 <strong>GTranslate</strong> 。</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-cst-studio-suite-2019" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/09/cst-studio-suite-2019/" class="article-date">
-      <time datetime="2019-07-09T01:37:07.000Z" itemprop="datePublished">2019-07-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/09/cst-studio-suite-2019/">CST Studio Suite 2019</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image.png" alt=""></p>
-<p>CST 2019已经更新，相应和谐版也可以下载到。</p>
-<p>这里提供的CST 2019的license支持分布式计算。</p>
-<p>百度网盘下载地址：</p>
-<p>链接：<a href="https://pan.baidu.com/s/1P4BldP1xcILOkuEGpzMfiQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1P4BldP1xcILOkuEGpzMfiQ</a><br>提取码：w8ly  </p>
-<p><strong>CST 2019 Update SP3 安装包附上</strong></p>
-<p>链接：<a href="https://pan.baidu.com/s/1a9rUUMO5xg6S2q02JvDW7Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1a9rUUMO5xg6S2q02JvDW7Q</a><br>提取码：304k<br>-————————来自： <a href="mailto:cynric_liu@126.com">cynric_liu@126.com</a></p>
-<p>CST Studio Suit 2019 Feature Highlights</p>
-<p><a href="http://woodybuendia.site/wp-content/uploads/2019/07/CST-Studio-Suite-2019.pdf" target="_blank" rel="noopener">CST-Studio-Suite-2019</a><a href="http://woodybuendia.site/wp-content/uploads/2019/07/CST-Studio-Suite-2019.pdf" target="_blank" rel="noopener">下载</a></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E5%A4%A9%E7%BA%BF%E4%B8%8E%E5%BE%AE%E6%B3%A2/">天线与微波</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hfss-matlab-api-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/02/hfss-matlab-api-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b/" class="article-date">
-      <time datetime="2019-07-02T09:06:00.000Z" itemprop="datePublished">2019-07-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/02/hfss-matlab-api-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b/">HFSS-MATLAB-API 使用教程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>HFSS-MATLAB-API 使用教程 By WoodyBuendia</p>
-<h2 id="为控制本教程传播版本，提供最新的更新，不再提供教程下载，如果有需求请发邮件索取。——20200509"><a href="#为控制本教程传播版本，提供最新的更新，不再提供教程下载，如果有需求请发邮件索取。——20200509" class="headerlink" title="为控制本教程传播版本，提供最新的更新，不再提供教程下载，如果有需求请发邮件索取。——20200509"></a><strong>为控制本教程传播版本，提供最新的更新，不再提供教程下载，如果有需求请发邮件索取。</strong>——20200509</h2><h2 id="关于HFSS脚本"><a href="#关于HFSS脚本" class="headerlink" title="关于HFSS脚本"></a>关于HFSS脚本</h2><p>根据HFSS 15版本帮助文件介绍，HFSS软件使用Microsoft®Visual Basic® Scripting Edition (VBScript)脚本语言记录宏指令。</p>
-<p>一方面，在打开HFSS软件进行一些造作时，如果选择Tools——Record Script to file，新建一个.vbs后缀的脚本文件，可以将所有的操作记录在新建的脚本中；另一方面可以编写符合格式的脚本文件，通过Tools——Run Script来让HFSS软件运行编写好的脚本。</p>
-<p>在一些特定的场景，事先编写脚本让HFSS执行相关操作，是非常高效和准确的，可以节省大量的重复性造作；不仅如此，在有些情况下，由于建模过于复杂或者模型变量需要通过第三方优化算法相互调用，那么只能使用编写脚本的方法才能完成。</p>
-<p>在这个最简单的脚本中，可以看到即使是新建一个圆面的操作，需要的脚本也是比较多和复杂的，如果手动一行行敲入这些脚本代码，一方面过于冗长难免出现各种错误，另一方面也无法实现提高效率的初衷。</p>
-<p>好在前辈们给出了一些简便的方法，可以将重复性的操作变成可以调用的函数，将需要指定的相关参数作为输入，通过相关编程语言自动完成vbs脚本文件。这些操作可以通过MATLAB或者Python完成，本文介绍的HFSS-MATLAB API就是通过MATLAB编写一套可调用的程序库，通过编写MATLAB代码来生成所需的vbs脚本。</p>
-<h2 id="HFSS脚本：HFSS-MATLAB-API"><a href="#HFSS脚本：HFSS-MATLAB-API" class="headerlink" title="HFSS脚本：HFSS-MATLAB API"></a>HFSS脚本：HFSS-MATLAB API</h2><p>如前所述，使用MATLAB编写程序是生成脚本的一个可行的方法，早在2004年，名为Vijay Ramasami (<a href="mailto:rvc@ku.edu">rvc@ku.edu</a>)的前辈发布了（据我所知）一套基于MATLAB的HFSS-MATLAB API，已经实现了通过编写MATLAB程序来生成vbs脚本，之后再通过HFSS菜单栏tool-run script，选择所生成的vbs脚本文件执行。</p>
-<p>根据我所下载到的版本，Yueliang(yue_<a href="mailto:liang423@163.com">liang423@163.com</a>)对该API也有贡献（2008年）。然而，上述API实现功能还不够，并且不支持参数化。毕竟时过境迁，HFSS的版本也迭代到了2018，HFSS本身的功能也十分复杂，个人难以开发一个完整脚本接口。但是，HFSS每一步的操作均可以记录到脚本中，你可以将你的操作记录下来然后程序化。</p>
-<p>在笔者的工作学习过程中，从发现这个API之后，就一直在使用这套API，因为工作的原因需要建模或者联合仿真一些诸如阵列、波导缝隙以及一些特殊类型天线。我在使用中对下载得到的API做了较大的改动，主要有以下几个方面：</p>
-<ol>
-<li><p>添加定义参数、修改参数；</p>
-</li>
-<li><p>修改3dModeler中常见模型建模的函数，使其支持参数化建模；</p>
-</li>
-<li><p>添加了一些功能。</p>
-</li>
-</ol>
-<p>详细内容，请下载PDF文档：</p>
-<p>20180411,对教程做了少量修改与修订，已更新并上传到百度云。</p>
-<p><strong>本文除已说明和致谢外，均为原创，未经本人同意，严禁擅自发表，包括但不限于微信、微博公共号或网站和论坛。如有需求请与本人联系。</strong></p>
-<p>相关资源已经上传至Github，地址为：<a href="https://github.com/WoodyBuendia/HFSS-MATLAB-API.git" target="_blank" rel="noopener">https://github.com/WoodyBuendia/HFSS-MATLAB-API.git</a></p>
-<p><em>鉴于GitHub有时候不便访问，也可通过百度网盘下载，链接：<a href="https://pan.baidu.com/s/1mLtNEmaIBR-TUXHpz02RFA" target="_blank" rel="noopener">https://pan.baidu.com/s/1mLtNEmaIBR-TUXHpz02RFA</a> 密码：v837​</em></p>
-<h2 id="本教程作者"><a href="#本教程作者" class="headerlink" title="本教程作者"></a>本教程作者</h2><p><strong>吴迪</strong></p>
-<p>​联系邮箱：<a href="mailto:woodybuendia@gmail.com">woodybuendia@gmail.com</a>；tinywoody@126.com;</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>自从我去年发表这个教程以来，很多朋友给我发邮件、微信，很感激同行们能够关注到这个API，也很高兴能和同行们讨论天线和HFSS的专业问题。如果有遗漏或回复不及时，还请见谅。</p>
-<p>因为我本身只是一名毕业了的硕士研究生毕，能力有限，很多问题我也没注意到，还请大家一起改善。</p>
-<p>另外，使用这个API是需要一定MATLAB基础的。这里说的一定基础，我觉得可能对只接触过MATLAB的人来说，还是有点要求的。</p>
-<p><strong><em>起码你要知道什么是变量，什么是函数，什么是MATLAB的工作路径，你不能运行一下代码，报错说：未定义的函数或变量’hfssNewProject’，你就跑来问为什么。你说为什么？因为你没有把这些函数的路径添加到matlab的path啊。问我怎么添加？我觉得自己百度吧。。</em></strong></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/MATLAB/">MATLAB</a><a class="article-category-link" href="/categories/MATLAB/%E5%A4%A9%E7%BA%BF%E4%B8%8E%E5%BE%AE%E6%B3%A2/">天线与微波</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HFSS-Matlab-API/" rel="tag">HFSS-Matlab API</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-e5-bb-ba-e7-ab-99-e8-ae-b0-e5-bd-95" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/28/e5-bb-ba-e7-ab-99-e8-ae-b0-e5-bd-95/" class="article-date">
-      <time datetime="2019-05-28T02:32:37.000Z" itemprop="datePublished">2019-05-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/28/e5-bb-ba-e7-ab-99-e8-ae-b0-e5-bd-95/">建站记录</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>简要记录本网站搭建的过程，以供参考。</p>
-<p>Update 20190629:</p>
-<p>由于六月初特殊时期，本站点原VPS供应商：Linode新加坡机房IP被封，迁移至Google Cloud Platform。GCP活动期间注册验证信用卡送300美元，基本可以免费使用一年，地址： <a href="https://cloud.google.com/free/" target="_blank" rel="noopener">https://cloud.google.com/free/</a></p>
-<h2 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h2><p>首先购买域名，本网站通过阿里云（万网）购买域名：woodybuendia.site.由于域名便宜，一下子买了十年，花费179RMB。</p>
-<p>购买域名连接：<a href="https://wanwang.aliyun.com/" target="_blank" rel="noopener">https://wanwang.aliyun.com/</a></p>
-<h2 id="购买VPS服务器"><a href="#购买VPS服务器" class="headerlink" title="购买VPS服务器"></a>购买VPS服务器</h2><p>之所以搭建个人博格，是因为前段时间从09年开始写的网易博客关站，整个网易博客整体关闭。虽然提供迁移到Lofter的途径，但毕竟感觉连黄易都能关闭博客。后面虽然经常在新浪博客发表一些文章，也总想着能自己购买服务器自建。</p>
-<p>本站VPS服务器购买的是境外VPS提供商：Linode，网站：<a href="https://cloud.linode.com" target="_blank" rel="noopener">https://cloud.linode.com</a></p>
-<p>我选择的节点是： Nanode 1GB: 1 CPU, 25GB Storage, 1GB RAMSingapore, SG</p>
-<p>费用：5美元每月，初次注册赠送20美元，相当于5美元可以用四个月。</p>
-<p>注意：需要支持Visa的信用卡，我用的是招商银行的全币卡。全币卡可以直接在招商银行app掌上生活中申请。</p>
-<h2 id="创建VPS操作系统"><a href="#创建VPS操作系统" class="headerlink" title="创建VPS操作系统"></a>创建VPS操作系统</h2><p>本站使用Ubuntu16版本，在购买VPS时候即需要选择VPS服务器上运行的操作系统。</p>
-<h2 id="域名映射"><a href="#域名映射" class="headerlink" title="域名映射"></a>域名映射</h2><p>VPS服务器购买、创建系统之后，在你的VPS提供商管理界面中会看到你的VPS的IP地址，这个IP地址是公网地址。</p>
-<p>打开阿里云域名管理的页面，将注册的域名映射到VPS的IP地址。</p>
-<h2 id="VPS服务器中安装Web服务器、数据库等"><a href="#VPS服务器中安装Web服务器、数据库等" class="headerlink" title="VPS服务器中安装Web服务器、数据库等"></a>VPS服务器中安装Web服务器、数据库等</h2><p>本站使用的Web服务器数据库是 LAMP组合，“LAMP”是一组开放源代码软件，通常安装在一起以使服务器能够托管动态网站和网络应用。 这个词其实是代表第<strong>l</strong>inux下的操作系统，与<strong>A</strong>帕什Web服务器的缩写。 站点数据存储在A <strong>M</strong> ySQL数据库，和动态内容用<strong>P</strong>惠普处理。</p>
-<p>具体操作主要参考网站：<a href="https://www.howtoing.com/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04" target="_blank" rel="noopener">https://www.howtoing.com/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04</a></p>
-<h2 id="安装wordpress"><a href="#安装wordpress" class="headerlink" title="安装wordpress"></a>安装wordpress</h2><p>本网站使用wordpress作为网站内容架构。</p>
-<p>WordPress是互联网上最流行的CMS（内容管理系统）。它允许您轻松地在PHP处理的MySQL后端设置灵活的博客和网站。 WordPress已经看到令人难以置信的采用，是一个伟大的选择，使网站快速运行。 </p>
-<p>安装参考网页：<a href="https://www.howtoing.com/how-to-install-wordpress-on-ubuntu-14-04/" target="_blank" rel="noopener">https://www.howtoing.com/how-to-install-wordpress-on-ubuntu-14-04/</a></p>
-<h2 id="完成网站搭建"><a href="#完成网站搭建" class="headerlink" title="完成网站搭建"></a>完成网站搭建</h2><p>Enjoy！</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag">记录</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-e5-88-a9-e7-94-a8-e7-bc-96-e7-a8-8b-e5-bf-ab-e9-80-9f-e7-94-9f-e6-88-90-e8-be-83-e5-a4-a7-e8-a7-84-e6-a8-a1-e5-8f-af-e9-87-8d-e6-9e-84-e9-98-b5-e5-88-97-e4-b8-8e-e7-bc-96-e8-be-91pin-e4-ba-8c" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/27/e5-88-a9-e7-94-a8-e7-bc-96-e7-a8-8b-e5-bf-ab-e9-80-9f-e7-94-9f-e6-88-90-e8-be-83-e5-a4-a7-e8-a7-84-e6-a8-a1-e5-8f-af-e9-87-8d-e6-9e-84-e9-98-b5-e5-88-97-e4-b8-8e-e7-bc-96-e8-be-91pin-e4-ba-8c/" class="article-date">
-      <time datetime="2019-05-27T03:45:59.000Z" itemprop="datePublished">2019-05-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/27/e5-88-a9-e7-94-a8-e7-bc-96-e7-a8-8b-e5-bf-ab-e9-80-9f-e7-94-9f-e6-88-90-e8-be-83-e5-a4-a7-e8-a7-84-e6-a8-a1-e5-8f-af-e9-87-8d-e6-9e-84-e9-98-b5-e5-88-97-e4-b8-8e-e7-bc-96-e8-be-91pin-e4-ba-8c/">利用编程快速生成较大规模可重构阵列与编辑PIN二极管状态——Part Ⅰ:生成</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在可重构天线阵列的设计中，通常使用LumpedRLC（以HFSS为例）来仿真PIN二极管各种状态。在一些较大规模的可重构天线设计中，如何快速建模和修改阵列中每个单元中的PIN二极管状态，是一个需要解决的问题。</p>
-<p>利用 HFSS-MATLAB-API 可以通过Matlab编程生成脚本，来让HFSS软件自动执行生成的脚本。在Matlab中编辑阵列中PIN（LumpedRLC）的状态和组合，远远比在HFSS软件中手动修改要快速、简便。</p>
-<p>关于 HFSS-MATLAB-API 的使用介绍，参考之前的文章：HFSS-MATLAB-API使用教程</p>
-<p>本文介绍如何用该API快速生成较大规模的可重构天线阵列。</p>
-<h2 id="添加函数"><a href="#添加函数" class="headerlink" title="添加函数"></a>添加函数</h2><p>由于原api没有函数可以一个面设置LumpedRLC边界，需要添加一个函数。添加函数：hfssAssignLumpedRLC</p>
-<p>所需输入变量：fid, Name, ObjName, iLStart, iLEnd,R,L,C,Units</p>
-<p>其中，Name为生成的Lumped RLC名称，ObjName为选定面的名称， iLStart, iLEnd 为起始的积分线，RLC为电阻电感电容值。注意，如果仅为边界设置电阻值，那么LC的输入应为L=[]，C=[]。Units为距离单位，如mm。</p>
-<p>具体函数内容： hfssAssignLumpedRLC</p>
-<p><a href="http://35.229.160.101/wp-content/uploads/2019/05/hfssAssignLumpedRLC.m.txt" target="_blank" rel="noopener">hfssAssignLumpedRLC.m</a><a href="http://35.229.160.101/wp-content/uploads/2019/05/hfssAssignLumpedRLC.m.txt" target="_blank" rel="noopener">Download</a></p>
-<h2 id="创建天线阵列"><a href="#创建天线阵列" class="headerlink" title="创建天线阵列"></a>创建天线阵列</h2><h3 id="Contents内容："><a href="#Contents内容：" class="headerlink" title="Contents内容："></a>Contents内容：</h3><ul>
-<li><a href="#2">Initial antenna parameter</a></li>
-<li><a href="#4">add vars</a></li>
-<li><a href="#5">Single Reconfigurable patch</a></li>
-<li><a href="#6">Assign boundary</a></li>
-<li><a href="#7">Array</a></li>
-<li><a href="#8">fclose</a></li>
-</ul>
-<p>具体代码参见： Reconfigurable-Array_MatlabCode （程序没有考虑工作路径，需按照实际修改）</p>
-<p><a href="http://35.229.160.101/wp-content/uploads/2019/05/ReconfigurableArray.m-1.txt" target="_blank" rel="noopener">ReconfigurableArray.m-1</a><a href="http://35.229.160.101/wp-content/uploads/2019/05/ReconfigurableArray.m-1.txt" target="_blank" rel="noopener">Download</a></p>
-<p>打开HFSS，菜单栏选择tool——Run Script</p>
-<p>Script文件：</p>
-<p><a href="http://35.229.160.101/wp-content/uploads/2019/05/Reconfigurable-Array.vbs_.txt" target="_blank" rel="noopener">Reconfigurable-Array.vbs_</a><a href="http://35.229.160.101/wp-content/uploads/2019/05/Reconfigurable-Array.vbs_.txt" target="_blank" rel="noopener">Download（下载后删除txt后缀）</a></p>
-<h2 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h2><p><img src="http://35.229.160.101/wp-content/uploads/2019/05/Rc-1.jpg" alt=""></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/MATLAB/">MATLAB</a><a class="article-category-link" href="/categories/MATLAB/%E5%A4%A9%E7%BA%BF%E4%B8%8E%E5%BE%AE%E6%B3%A2/">天线与微波</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HFSS-Matlab-API/" rel="tag">HFSS-Matlab API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A9%E7%BA%BF/" rel="tag">天线</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-e3-80-90-e5-b7-a5-e4-bd-9c-e7-ac-94-e8-ae-b0-e3-80-91rfid-e7-b3-bb-e7-bb-9f-e5-b7-a5-e4-bd-9c-e5-8e-9f-e7-90-86-e4-b8-8e920mhz-e8-af-bb-e5-8d-a1-e5-99-a8-e5-a4-a9-e7-ba-bf-e8-ae-be-e8-ae-a1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/24/e3-80-90-e5-b7-a5-e4-bd-9c-e7-ac-94-e8-ae-b0-e3-80-91rfid-e7-b3-bb-e7-bb-9f-e5-b7-a5-e4-bd-9c-e5-8e-9f-e7-90-86-e4-b8-8e920mhz-e8-af-bb-e5-8d-a1-e5-99-a8-e5-a4-a9-e7-ba-bf-e8-ae-be-e8-ae-a1/" class="article-date">
-      <time datetime="2019-05-24T09:24:50.000Z" itemprop="datePublished">2019-05-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/24/e3-80-90-e5-b7-a5-e4-bd-9c-e7-ac-94-e8-ae-b0-e3-80-91rfid-e7-b3-bb-e7-bb-9f-e5-b7-a5-e4-bd-9c-e5-8e-9f-e7-90-86-e4-b8-8e920mhz-e8-af-bb-e5-8d-a1-e5-99-a8-e5-a4-a9-e7-ba-bf-e8-ae-be-e8-ae-a1/">【工作笔记】RFID系统工作原理与920MHz读卡器天线设计</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>【工作笔记】工作笔记系列文章，将会记录在工作中学习或者遇到的各种知识点与问题，一方面增强记忆、方便回忆；另一方面作为参考。</p>
-<h1 id="RFID系统工作原理"><a href="#RFID系统工作原理" class="headerlink" title="RFID系统工作原理"></a>RFID系统工作原理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>射频识别技术——Radio Frequency Identification，简称 RFID；是一种利用无线电识别物体的技术，可以做到品级标签识别能力（ILT：Item Level  Tagging）。</p>
-<p>一个较为典型的射频识别系统的基本结构的组成一般包括标签（Tag）、读写器（Reader）和应用系统（Application System）。<br>RFID 系统的工作流程是：阅读器通过天线发射调制信号，当标签进入到可识别区域时，标签通过天线接收能量并激活芯片，并将自身的编码信息（ID）通过标签天线反馈给阅读器。阅读器天线接收到标签天线发送回来的载波信号，对信号进行解调和解码后送到数据交互管理系统进行处理。</p>
-<p><img src="http://35.229.160.101/wp-content/uploads/2019/05/RFID.jpg" alt=""></p>
-<h2 id="RFID工作频段、工作方式、作用距离"><a href="#RFID工作频段、工作方式、作用距离" class="headerlink" title="RFID工作频段、工作方式、作用距离"></a>RFID工作频段、工作方式、作用距离</h2><p>低频（LF）：125 kHz-134 kHz；工作方式：电磁耦合；作用距离：低频读写器天线的读写范围一般为几厘米至几十厘米。</p>
-<p>高频（HF）：13.56 MHz；</p>
-<p>超高频（UHF)：国际标准为 860 MHz-960 MHz，在中国为902 MHz-928 MHz;</p>
-<p>微波波段：2.4 GHz 和 5.8 GHz。</p>
-<h2 id="射频识别系统与天线的分类"><a href="#射频识别系统与天线的分类" class="headerlink" title="射频识别系统与天线的分类"></a>射频识别系统与天线的分类</h2><p>对于采用被动式标签的射频识别系统而言，根据工作频段的不同具有两种工作模式。一种是<strong>感应耦合（Inductive Coupling）</strong>工作模式,这种模式也称为近场工作模式，它主要适用用于低频和高频RFID系统；另一种则是<strong>反向散射（Back scattering）</strong>工作模式，这种模式也称为远场工作模式，主要适用于超高频和微波RFID系统。</p>
-<p><strong>感应耦合模式</strong>主要是指读写器天线和标签天线都采用线圈形式。当读写器在阅读标签时，发出未经调制的信号，处于读写器天线近场的电子标签天线接收到该信号并激活标签芯片之后，由标签芯片根据内部存储的全球唯一的识别号（ID）控制标签天线中的电流大小。这个电流的大小进一步增强或者减小阅读器天线发出的磁场。这时，读写器的近场分量展现出被调制的特性，读写器内部电路检测到这个由于标签而产生的调制量并解调并得到标签信息。</p>
-<p>在<strong>反向散射工作模式</strong>中，读写器和电子标签之间采用电磁波来进行信息的传输。当读写器对标签进行阅读识别时，首先发出未经调制的电磁波，此时位于远场的电子标签天线接收到电磁波信号并在天线上产生感应电压，电子标签内部电路将这个感应电压进行整流并放大用于激活标签芯片。当标签芯片激活之后，用自身的全球唯一标识号对标签芯片阻抗进行变化，当电子标签芯片的阻抗和标签芯片之间的阻抗匹配较好时则基本不反射信号，而阻抗匹配不好时则将几乎全部反射信号，这样反射信号就出现了振幅的变化，这种情况类似于对反射信号进行幅度调制处理。读写器通过接收到经过调制的反射信号判断该电子标签的标识号并进行识别。<strong>这类天线主要包括微带天线、平面偶极子天线和环形天线。</strong></p>
-<h2 id="…-待续"><a href="#…-待续" class="headerlink" title="….待续"></a>….待续</h2>
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E5%A4%A9%E7%BA%BF%E4%B8%8E%E5%BE%AE%E6%B3%A2/">天线与微波</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RFID/" rel="tag">RFID</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A9%E7%BA%BF/" rel="tag">天线</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/" rel="tag">工作笔记</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-pdf-ef-bc-9aapplication-note-of-radar-sensing-and-detection-innosent-e8-b0-83-e9-a2-91-e8-bf-9e-e7-bb-ad-e6-b3-a2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/23/pdf-ef-bc-9aapplication-note-of-radar-sensing-and-detection-innosent-e8-b0-83-e9-a2-91-e8-bf-9e-e7-bb-ad-e6-b3-a2/" class="article-date">
-      <time datetime="2019-05-23T03:40:27.000Z" itemprop="datePublished">2019-05-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/23/pdf-ef-bc-9aapplication-note-of-radar-sensing-and-detection-innosent-e8-b0-83-e9-a2-91-e8-bf-9e-e7-bb-ad-e6-b3-a2/">PDF：Application Note of Radar Sensing and Detection_Innosent_调频连续波</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Innosent是世界上最大的商业用24GHZ雷达传感器制造商，世界第二大的自动工控用雷达制造商，位于德国乌滋堡，是一家专业设计，生产，销售应用于工业’商业·自动化控制等领域的雷达传感器的高科技公司。公司的雷达传感器是使用世界最先进的平面微带天线技术制造而成，体积小，集成化程度高，感应灵敏。公司成立于1999年，有大批有二三十年雷达开发经验的技术人员，生产的传感器远销世界各地，被广泛运用于自动开门，交通测速测距测流量，液位测量，安防闯入警报，计数器，体育测速，汽车ACC雷达巡航系统等。 在其官网上看到一些相关资料，主要是Application Note感觉写的很不错，分享一下。 原文分为四个部分，合并成一个pdf上传： 链接：<a href="https://pan.baidu.com/s/1aooawnp7o0RmWO659KTFDw" target="_blank" rel="noopener">https://pan.baidu.com/s/1aooawnp7o0RmWO659KTFDw</a> 提取码：8r19 内容包括： <img src="http://35.229.160.101/wp-content/uploads/2019/05/Application-Note-of-Radar-Sensing-and-Detection-partI-IV_InnoSenT_%E9%A1%B5%E9%9D%A2_01.jpg" alt=""></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E8%B5%84%E6%BA%90/">资源</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
-    </nav>
-  
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2020 Woody Buendia
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
-</footer>
-
-    </div>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-    <script>
-        $(document).ready(function() {
-            var backgroundnum = 24;
-            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-        })
-    </script>
-
-
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
-</div>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
 <script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
 </script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
 
-  <script language="javascript">
-    $(function() {
-        $("a[title]").each(function() {
-            var a = $(this);
-            var title = a.attr('title');
-            if (title == undefined || title == "") return;
-            a.data('title', title).removeAttr('title').hover(
+    
+        <body class="home-body">
+    
+    
+<header class="header index-header">
 
-            function() {
-                var offset = a.offset();
-                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
-                    top: offset.top - a.outerHeight() - 15,
-                    left: offset.left + a.outerWidth()/2 + 1
-                }).fadeIn(function() {
-                    var pop = $(this);
-                    setTimeout(function() {
-                        pop.remove();
-                    }, pop.text().length * 800);
-                });
-            }, function() {
-                $("#anchortitlecontainer").remove();
-            });
-        });
-    });
-</script>
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <a class="home-link" href=/>The Blog of WoodyBuendia.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
 
 
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 文章页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            The Blog of WoodyBuendia.
+            <!-- 文章页  -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+                it's better to burn out than to fade away
+            
+            <!-- 文章页  -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/18/ansys-hfss-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-ef-bc-9a-e4-bb-a5-e8-80-a6-e5-90-88-e5-be-ae-e5-b8-a6-e7-ba-bf-e7-94-b5-e6-a1-a5-e4-b8-ba-e4-be-8b/" >
+            
+                <span>Ansys HFSS优化工具箱的使用：以耦合微带线电桥为例</span>
+        </a>
+        <div class="abstract-content">
+            为说明Ansys Electronics Desktop（即HFSS俗称海飞丝）中优化工具箱（Optimization tool）的使用，通过Optimization中的遗传算法（GA）为例，优化耦合微带线电桥。
+HFSS更新至2019 R2（up to data 20190718）,不过我还在用2019 R1，新版本没找到。
+网友投稿，HFSS 2019R2： Ansys Electronics Dsktop 2019 R2 Win64链接: https://pan.baidu.com/s/1Kibax1UOfBEYQfBRf8tOBA 提取码: 91zv
+
+HFSS 俗称海飞丝
+耦合...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "HFSS">HFSS</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "优化">优化</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "电桥">电桥</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "遗传算法">遗传算法</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/18/cst-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-e4-bb-a5-e5-88-86-e6-94-af-e7-ba-bf-e7-94-b5-e6-a1-a5-e7-9a-84-e4-bc-98-e5-8c-96-e4-b8-ba-e4-be-8b/" >
+            
+                <span>CST优化工具箱的使用-以分支线电桥的优化为例</span>
+        </a>
+        <div class="abstract-content">
+            为了说明CST优化工具箱的使用，本文以分支线电桥的优化为例，通过CST优化工具箱中的遗传算法优化电桥S参数，简要说明CST优化工具箱的使用。
+分支线电桥：四端口微带耦合线电桥
+指标要求：
+工作频率：L；
+耦合度：3dB；插入损耗：≤0.3dB；
+端口电压驻波比：≤1.5；
+端口隔离度：≥18dB；
+端口不平衡度：≤±0.2dB；
+端口相位不平衡度：≤90°±3°；
+在CST中建模如下：
+
+介质材料：罗杰斯4350B，介电常数3.66；介质板厚度0.508mm
+优化设置首先，建模时要将所有变量参数化，即：使用变量表达各个尺寸。
+在选项卡中点击Optimizer，在setting页面选择需要...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "CST">CST</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/15/e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8ffrp-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b/" >
+            
+                <span>内网穿透frp部署记录总结</span>
+        </a>
+        <div class="abstract-content">
+            根据网上教程摸索出来一套可用的方法，记录如下。
+frp介绍frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。
+项目地址：https://github.com/fatedier/frp/blob/master/README_zh.md
+ubuntu上搭建frp本人ubuntu小白，根据网上教程摸索出来一套可用的方法，记录如下。防止再次检索。
+一键安装：https://github.com/MvsCode/frp-onekey
+Frps服务端一键配置脚本，最新版本：0.27.1
+...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/15</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/09/e7-bd-91-e7-ab-99-e7-bb-b4-e6-8a-a4-e8-ae-b0-e5-bd-95/" >
+            
+                <span>网站维护记录</span>
+        </a>
+        <div class="abstract-content">
+            20190629 ：网站迁移至Google Cloud Platform；使用Apache2+PHP+MySq构架。网站内容通过插件 UpdraftPlus-备份/恢复 完整从Lionde VPS迁移至GCP。
+20190708：新增分享页面、关注社交账号功能，使用WordPress插件**Share Buttons by AddThis** 实现。
+20190709：新增PDF在线/页面内预览功能，提高网站PDF文件阅读体验。使用插件： Algori PDF Viewer Lite ，示例页面：http://woodybuendia.site/?p=175
+20190709：之前在网站...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/09</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/09/cst-studio-suite-2019/" >
+            
+                <span>CST Studio Suite 2019</span>
+        </a>
+        <div class="abstract-content">
+            
+CST 2019已经更新，相应和谐版也可以下载到。
+这里提供的CST 2019的license支持分布式计算。
+百度网盘下载地址：
+链接：https://pan.baidu.com/s/1P4BldP1xcILOkuEGpzMfiQ提取码：w8ly  
+CST 2019 Update SP3 安装包附上
+链接：https://pan.baidu.com/s/1a9rUUMO5xg6S2q02JvDW7Q提取码：304k-————————来自： cynric_liu@126.com
+CST Studio Suit 2019 Feature Highlights
+CST-Studio-Su...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/09</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/07/02/hfss-matlab-api-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b/" >
+            
+                <span>HFSS-MATLAB-API 使用教程</span>
+        </a>
+        <div class="abstract-content">
+            HFSS-MATLAB-API 使用教程 By WoodyBuendia
+为控制本教程传播版本，提供最新的更新，不再提供教程下载，如果有需求请发邮件索取。——20200509关于HFSS脚本根据HFSS 15版本帮助文件介绍，HFSS软件使用Microsoft®Visual Basic® Scripting Edition (VBScript)脚本语言记录宏指令。
+一方面，在打开HFSS软件进行一些造作时，如果选择Tools——Record Script to file，新建一个.vbs后缀的脚本文件，可以将所有的操作记录在新建的脚本中；另一方面可以编写符合格式的脚本文件，通过Tools...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/02</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "HFSS-Matlab API">HFSS-Matlab API</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/28/e5-bb-ba-e7-ab-99-e8-ae-b0-e5-bd-95/" >
+            
+                <span>建站记录</span>
+        </a>
+        <div class="abstract-content">
+            简要记录本网站搭建的过程，以供参考。
+Update 20190629:
+由于六月初特殊时期，本站点原VPS供应商：Linode新加坡机房IP被封，迁移至Google Cloud Platform。GCP活动期间注册验证信用卡送300美元，基本可以免费使用一年，地址： https://cloud.google.com/free/
+购买域名首先购买域名，本网站通过阿里云（万网）购买域名：woodybuendia.site.由于域名便宜，一下子买了十年，花费179RMB。
+购买域名连接：https://wanwang.aliyun.com/
+购买VPS服务器之所以搭建个人博格，是因为前段时间从...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/28</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "记录">记录</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/27/e5-88-a9-e7-94-a8-e7-bc-96-e7-a8-8b-e5-bf-ab-e9-80-9f-e7-94-9f-e6-88-90-e8-be-83-e5-a4-a7-e8-a7-84-e6-a8-a1-e5-8f-af-e9-87-8d-e6-9e-84-e9-98-b5-e5-88-97-e4-b8-8e-e7-bc-96-e8-be-91pin-e4-ba-8c/" >
+            
+                <span>利用编程快速生成较大规模可重构阵列与编辑PIN二极管状态——Part Ⅰ:生成</span>
+        </a>
+        <div class="abstract-content">
+            简介在可重构天线阵列的设计中，通常使用LumpedRLC（以HFSS为例）来仿真PIN二极管各种状态。在一些较大规模的可重构天线设计中，如何快速建模和修改阵列中每个单元中的PIN二极管状态，是一个需要解决的问题。
+利用 HFSS-MATLAB-API 可以通过Matlab编程生成脚本，来让HFSS软件自动执行生成的脚本。在Matlab中编辑阵列中PIN（LumpedRLC）的状态和组合，远远比在HFSS软件中手动修改要快速、简便。
+关于 HFSS-MATLAB-API 的使用介绍，参考之前的文章：HFSS-MATLAB-API使用教程
+本文介绍如何用该API快速生成较大规模的可重构天线阵...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/27</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "天线">天线</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "HFSS-Matlab API">HFSS-Matlab API</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/24/e3-80-90-e5-b7-a5-e4-bd-9c-e7-ac-94-e8-ae-b0-e3-80-91rfid-e7-b3-bb-e7-bb-9f-e5-b7-a5-e4-bd-9c-e5-8e-9f-e7-90-86-e4-b8-8e920mhz-e8-af-bb-e5-8d-a1-e5-99-a8-e5-a4-a9-e7-ba-bf-e8-ae-be-e8-ae-a1/" >
+            
+                <span>【工作笔记】RFID系统工作原理与920MHz读卡器天线设计</span>
+        </a>
+        <div class="abstract-content">
+            【工作笔记】工作笔记系列文章，将会记录在工作中学习或者遇到的各种知识点与问题，一方面增强记忆、方便回忆；另一方面作为参考。
+RFID系统工作原理简介射频识别技术——Radio Frequency Identification，简称 RFID；是一种利用无线电识别物体的技术，可以做到品级标签识别能力（ILT：Item Level  Tagging）。
+一个较为典型的射频识别系统的基本结构的组成一般包括标签（Tag）、读写器（Reader）和应用系统（Application System）。RFID 系统的工作流程是：阅读器通过天线发射调制信号，当标签进入到可识别区域时，标签通过天线接收能量...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "RFID">RFID</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "天线">天线</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "工作笔记">工作笔记</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/23/pdf-ef-bc-9aapplication-note-of-radar-sensing-and-detection-innosent-e8-b0-83-e9-a2-91-e8-bf-9e-e7-bb-ad-e6-b3-a2/" >
+            
+                <span>PDF：Application Note of Radar Sensing and Detection_Innosent_调频连续波</span>
+        </a>
+        <div class="abstract-content">
+            Innosent是世界上最大的商业用24GHZ雷达传感器制造商，世界第二大的自动工控用雷达制造商，位于德国乌滋堡，是一家专业设计，生产，销售应用于工业’商业·自动化控制等领域的雷达传感器的高科技公司。公司的雷达传感器是使用世界最先进的平面微带天线技术制造而成，体积小，集成化程度高，感应灵敏。公司成立于1999年，有大批有二三十年雷达开发经验的技术人员，生产的传感器远销世界各地，被广泛运用于自动开门，交通测速测距测流量，液位测量，安防闯入警报，计数器，体育测速，汽车ACC雷达巡航系统等。 在其官网上看到一些相关资料，主要是Application Note感觉写的很不错，分享一下。 原文分为...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">NEXT &gt;</a>
+    </nav>
+    
+</main>
+            <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" alt="avatar" src= /avatar/Misaka.jpg >
+    <div class="profile-name">fi3ework</div>
+    
+    <div class="profile-signature">
+        witness me
+    </div>
+    
+    
+    <div class="profile-social">
+        
+    
+        
+            
+                <a href="mailto:tinywoody@126.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/WoodyBuendia" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                
+                    <span>
+                        <a href= //www.baidu.com target="_black">friendA</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= //www.google.com target="_black">friendB</a>
+                    </span>
+                
+            
+                
+            
+        </div>
+    
+    
+        <div class="about-me">
+            <a href = "/about" >ABOUT ME</a>
+        </div>
+    
+</div>
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:tinywoody@126.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/WoodyBuendia" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 27
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/2020/06/18/hello-world/" >Hello World</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2020/04/21/e7-bd-91-e7-ab-99-e5-85-ac-e5-91-8a-ef-bc-9a-e5-80-92-e8-ae-a1-e6-97-b668-e5-a4-a9-e8-bf-81-e7-a7-bb-e6-88-96-e5-85-b3-e7-ab-99/" >网站公告：倒计时68天迁移或关站</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2020/02/23/e3-80-90matlab-hfss-api-e3-80-91-e9-81-87-e5-88-b0-e9-97-ae-e9-a2-98-e8-af-a5-e5-a6-82-e4-bd-95-e8-a7-a3-e5-86-b3/" >【MATLAB HFSS API】遇到问题该如何解决</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/23</span><a class="archive-post-title" href= "/2019/11/23/e3-80-90-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95-e3-80-91win10-e5-8d-8e-e7-a1-95-e7-ac-94-e8-ae-b0-e6-9c-ac-e9-9f-b3-e9-a2-91-e6-9c-8d-e5-8a-a1-e6-9c-aa-e5-93-8d-e5-ba-94-e6-88-96-e8-80-85-e6-92-ad/" >【解决办法】win10华硕笔记本音频服务未响应或者播放失败请切换输出设备</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2019/11/07/e5-a4-a9-e7-ba-bf-e9-98-b5-e5-88-97-e6-97-81-e7-93-a3-e7-9a-84-e6-8a-91-e5-88-b6/" >天线阵列旁瓣的抑制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2019/11/07/e6-88-91-e7-9a-84-e7-ac-ac-e4-b8-80-e4-b8-aapyhton-e7-a8-8b-e5-ba-8f-ef-bc-9a-e9-80-9a-e8-bf-87-e7-99-be-e5-ba-a6-e5-9c-b0-e5-9b-beapi-e8-87-aa-e5-8a-a8-e6-9f-a5-e8-af-a2-e8-b7-af-e5-86-b5/" >我的第一个Pyhton程序：通过百度地图API自动查询路况</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/04</span><a class="archive-post-title" href= "/2019/09/04/e6-9d-82-e8-b0-88-e8-af-bb-e4-b9-a6/" >杂谈-读书</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/19</span><a class="archive-post-title" href= "/2019/08/19/e5-b8-b8-e7-94-a8-e7-94-b5-e7-a3-81-e4-bb-bf-e7-9c-9f-e8-bd-af-e4-bb-b6/" >常用电磁仿真软件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2019/07/19/e6-b7-b1-e5-ba-a6-e5-ad-a6-e4-b9-a0-e4-b9-8b-e5-9b-be-e5-83-8f-e7-9b-ae-e6-a0-87-e6-a3-80-e6-b5-8b-e5-88-86-e7-b1-bb-e7-9c-9f-e6-89-8b-e6-8a-8a-e6-89-8b-e6-95-99-e7-a8-8b/" >深度学习之图像目标检测分类-真手把手教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2019/07/18/antenna-magus-pro-2019/" >Antenna Magus Pro 2019 V9.2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2019/07/18/ansys-hfss-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-ef-bc-9a-e4-bb-a5-e8-80-a6-e5-90-88-e5-be-ae-e5-b8-a6-e7-ba-bf-e7-94-b5-e6-a1-a5-e4-b8-ba-e4-be-8b/" >Ansys HFSS优化工具箱的使用：以耦合微带线电桥为例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2019/07/18/cst-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-e4-bb-a5-e5-88-86-e6-94-af-e7-ba-bf-e7-94-b5-e6-a1-a5-e7-9a-84-e4-bc-98-e5-8c-96-e4-b8-ba-e4-be-8b/" >CST优化工具箱的使用-以分支线电桥的优化为例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2019/07/15/e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8ffrp-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b/" >内网穿透frp部署记录总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span><a class="archive-post-title" href= "/2019/07/09/e7-bd-91-e7-ab-99-e7-bb-b4-e6-8a-a4-e8-ae-b0-e5-bd-95/" >网站维护记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span><a class="archive-post-title" href= "/2019/07/09/cst-studio-suite-2019/" >CST Studio Suite 2019</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/02</span><a class="archive-post-title" href= "/2019/07/02/hfss-matlab-api-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b/" >HFSS-MATLAB-API 使用教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/28</span><a class="archive-post-title" href= "/2019/05/28/e5-bb-ba-e7-ab-99-e8-ae-b0-e5-bd-95/" >建站记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/27</span><a class="archive-post-title" href= "/2019/05/27/e5-88-a9-e7-94-a8-e7-bc-96-e7-a8-8b-e5-bf-ab-e9-80-9f-e7-94-9f-e6-88-90-e8-be-83-e5-a4-a7-e8-a7-84-e6-a8-a1-e5-8f-af-e9-87-8d-e6-9e-84-e9-98-b5-e5-88-97-e4-b8-8e-e7-bc-96-e8-be-91pin-e4-ba-8c/" >利用编程快速生成较大规模可重构阵列与编辑PIN二极管状态——Part Ⅰ:生成</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2019/05/24/e3-80-90-e5-b7-a5-e4-bd-9c-e7-ac-94-e8-ae-b0-e3-80-91rfid-e7-b3-bb-e7-bb-9f-e5-b7-a5-e4-bd-9c-e5-8e-9f-e7-90-86-e4-b8-8e920mhz-e8-af-bb-e5-8d-a1-e5-99-a8-e5-a4-a9-e7-ba-bf-e8-ae-be-e8-ae-a1/" >【工作笔记】RFID系统工作原理与920MHz读卡器天线设计</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/e6-af-ab-e7-b1-b3-e6-b3-a2-e6-97-a0-e7-ba-bf-e9-80-9a-e4-bf-a1-e8-8b-b1-e6-96-87-e5-8e-9f-e7-89-88-e3-80-8amillimeterwavewirelesscommunications-e3-80-8b/" >毫米波无线通信英文原版《MillimeterWaveWirelessCommunications》</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/pdf-ef-bc-9aapplication-note-of-radar-sensing-and-detection-innosent-e8-b0-83-e9-a2-91-e8-bf-9e-e7-bb-ad-e6-b3-a2/" >PDF：Application Note of Radar Sensing and Detection_Innosent_调频连续波</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2019/05/22/cst-studio-2018-e5-88-86-e5-b8-83-e5-bc-8f-e8-ae-a1-e7-ae-97distributed-computing-e9-83-a8-e7-bd-b2-e5-92-8c-e7-a0-b4-e8-a7-a3/" >CST Studio 2018分布式计算(Distributed Computing)部署和破解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2019/05/07/antenna-magus-pro-8-0-e5-92-8ccst-2018-e5-ae-89-e8-a3-85-e4-b8-8e-e7-a0-b4-e8-a7-a3/" >Antenna Magus Pro 8.0和CST 2018安装与破解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href= "/2019/05/05/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-bf-9c-e7-a8-8b-e6-a1-8c-e9-9d-a2-e5-ae-89-e8-a3-85matlab-e5-87-ba-e7-8e-b0license-manager-error-103-e7-9a-84-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/" >服务器远程桌面安装MATLAB出现License Manager Error -103的解决办法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2019/04/05/e4-ba-8c-e3-80-87-e4-b8-80-e4-b9-9d-e5-b9-b4-e5-9b-9b-e6-9c-88-e4-ba-94-e6-97-a5-c2-b7-e6-b8-85-e6-98-8e/" >二〇一九年四月五日·清明</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href= "/2019/03/07/e7-94-b5-e6-89-ab-e9-98-b5-e5-88-97-ef-bc-9amatlab-e5-bb-ba-e6-a8-a1-e4-b8-8e-e4-bb-bf-e7-9c-9f/" >电扫阵列：MATLAB 建模与仿真</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href= "/2019/03/07/hello-world-1/" >世界，您好！</a>
+        </li>
+    
+    </div>
   </div>
-</body>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="antenna magus"><span class="iconfont-archer">&#xe606;</span>antenna magus</span>
+    
+        <span class="sidebar-tag-name" data-tags="HFSS"><span class="iconfont-archer">&#xe606;</span>HFSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer">&#xe606;</span>优化</span>
+    
+        <span class="sidebar-tag-name" data-tags="电桥"><span class="iconfont-archer">&#xe606;</span>电桥</span>
+    
+        <span class="sidebar-tag-name" data-tags="遗传算法"><span class="iconfont-archer">&#xe606;</span>遗传算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="CST"><span class="iconfont-archer">&#xe606;</span>CST</span>
+    
+        <span class="sidebar-tag-name" data-tags="RFID"><span class="iconfont-archer">&#xe606;</span>RFID</span>
+    
+        <span class="sidebar-tag-name" data-tags="天线"><span class="iconfont-archer">&#xe606;</span>天线</span>
+    
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="HFSS-Matlab API"><span class="iconfont-archer">&#xe606;</span>HFSS-Matlab API</span>
+    
+        <span class="sidebar-tag-name" data-tags="资源"><span class="iconfont-archer">&#xe606;</span>资源</span>
+    
+        <span class="sidebar-tag-name" data-tags="记录"><span class="iconfont-archer">&#xe606;</span>记录</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="图像目标检测"><span class="iconfont-archer">&#xe606;</span>图像目标检测</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="天线与微波"><span class="iconfont-archer">&#xe60a;</span>天线与微波</span>
+    
+        <span class="sidebar-category-name" data-categories="天线与微波/资源"><span class="iconfont-archer">&#xe60a;</span>天线与微波/资源</span>
+    
+        <span class="sidebar-category-name" data-categories="计算机与互联网"><span class="iconfont-archer">&#xe60a;</span>计算机与互联网</span>
+    
+        <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
+    
+        <span class="sidebar-category-name" data-categories="MATLAB"><span class="iconfont-archer">&#xe60a;</span>MATLAB</span>
+    
+        <span class="sidebar-category-name" data-categories="资源"><span class="iconfont-archer">&#xe60a;</span>资源</span>
+    
+        <span class="sidebar-category-name" data-categories="未分类"><span class="iconfont-archer">&#xe60a;</span>未分类</span>
+    
+        <span class="sidebar-category-name" data-categories="MATLAB/天线与微波"><span class="iconfont-archer">&#xe60a;</span>MATLAB/天线与微波</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Woody Buendia"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    </body>
 </html>
+
+

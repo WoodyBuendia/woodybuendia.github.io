@@ -1,827 +1,1349 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
 <head>
-  <meta charset="utf-8">
-  
-  <title>WoodyBuendia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Woody Buendia">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Woody Buendia">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="WoodyBuendia">
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="WoodyBuendia">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Woody Buendia">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternative" href="/atom.xml" title="WoodyBuendia" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.png">
-  
-  
-      
-<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     
+    <title>The Blog of WoodyBuendia</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
-  
-  
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <!-- 加载特效 -->
-    <script src="/js/pace.js"></script>
-    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
-  <script>
-      var yiliaConfig = {
-          rootUrl: '/',
-          fancybox: true,
-          animate: true,
-          isHome: true,
-          isPost: false,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false
-      }
-  </script>
-<meta name="generator" content="Hexo 4.2.1"></head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/head.jpg" class="js-avatar">
-            
-        </a>
-
-        <hgroup>
-          <h1 class="header-author"><a href="/" title="Hi Mate">Woody Buendia</a></h1>
-        </hgroup>
-
-        
-        
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
-
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/Home">博客首页</a></li>
-                        
-                            <li><a href="/works">作品展示</a></li>
-                        
-                            <li><a href="/about">留言打卡</a></li>
-                        
-                            <li><a href="/FrontEndGuide">前端导航</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fl mail" target="_blank" href="/tinywoody@126.com" title="mail">mail</a>
-                            
-                                <a class="fl github" target="_blank" href="https://github.com/WoodyBuendia" title="github">github</a>
-                            
-                                <a class="fl zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-                            
-                                <a class="fl weibo" target="_blank" href="#" title="weibo">weibo</a>
-                            
-                                <a class="fl google" target="_blank" href="#" title="google">google</a>
-                            
-                                <a class="fl twitter" target="_blank" href="#" title="twitter">twitter</a>
-                            
-                                <a class="fl linkedin" target="_blank" href="#" title="linkedin">linkedin</a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/CST/" style="font-size: 10px;">CST</a> <a href="/tags/HFSS/" style="font-size: 10px;">HFSS</a> <a href="/tags/HFSS-Matlab-API/" style="font-size: 20px;">HFSS-Matlab API</a> <a href="/tags/RFID/" style="font-size: 10px;">RFID</a> <a href="/tags/antenna-magus/" style="font-size: 10px;">antenna magus</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/pytorch/" style="font-size: 10px;">pytorch</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">图像目标检测</a> <a href="/tags/%E5%A4%A9%E7%BA%BF/" style="font-size: 20px;">天线</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">工作笔记</a> <a href="/tags/%E7%94%B5%E6%A1%A5/" style="font-size: 10px;">电桥</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">记录</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 10px;">资源</a> <a href="/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">遗传算法</a>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://WoodyBuendia.github.io/">name</a>
-                    
-                    </div>
-                </section>
-                
-
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">My Name is Woody Buendia.</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Woody Buendia</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
-                
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="Me">Woody Buendia</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/Home">博客首页</a></li>
-                
-                    <li><a href="/works">作品展示</a></li>
-                
-                    <li><a href="/about">留言打卡</a></li>
-                
-                    <li><a href="/FrontEndGuide">前端导航</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a class="mail" target="_blank" href="/tinywoody@126.com" title="mail">mail</a>
-                    
-                        <a class="github" target="_blank" href="https://github.com/WoodyBuendia" title="github">github</a>
-                    
-                        <a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-                    
-                        <a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-                    
-                        <a class="google" target="_blank" href="#" title="google">google</a>
-                    
-                        <a class="twitter" target="_blank" href="#" title="twitter">twitter</a>
-                    
-                        <a class="linkedin" target="_blank" href="#" title="linkedin">linkedin</a>
-                    
-                </div>
-            </nav>
-        </header>                
-    </div>
-</nav>
-      <div class="body-wrap">
-  
-    <article id="post-e6-af-ab-e7-b1-b3-e6-b3-a2-e6-97-a0-e7-ba-bf-e9-80-9a-e4-bf-a1-e8-8b-b1-e6-96-87-e5-8e-9f-e7-89-88-e3-80-8amillimeterwavewirelesscommunications-e3-80-8b" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/23/e6-af-ab-e7-b1-b3-e6-b3-a2-e6-97-a0-e7-ba-bf-e9-80-9a-e4-bf-a1-e8-8b-b1-e6-96-87-e5-8e-9f-e7-89-88-e3-80-8amillimeterwavewirelesscommunications-e3-80-8b/" class="article-date">
-      <time datetime="2019-05-23T03:34:13.000Z" itemprop="datePublished">2019-05-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/23/e6-af-ab-e7-b1-b3-e6-b3-a2-e6-97-a0-e7-ba-bf-e9-80-9a-e4-bf-a1-e8-8b-b1-e6-96-87-e5-8e-9f-e7-89-88-e3-80-8amillimeterwavewirelesscommunications-e3-80-8b/">毫米波无线通信英文原版《MillimeterWaveWirelessCommunications》</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>《毫米波无线通信》Theodore S. Rappaport原版pdf，Google搜索了很久都没找到，最后是一个专业微信群的同行发给我的，感谢这位朋友。 如有需求请邮件联系。 <img src="http://35.229.160.101/wp-content/uploads/2019/05/images.jpg" alt=""> <img src="http://35.229.160.101/wp-content/uploads/2019/05/Millimeter-Wave-Wireless-Communications.jpg" alt=""></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E8%B5%84%E6%BA%90/">资源</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-cst-studio-2018-e5-88-86-e5-b8-83-e5-bc-8f-e8-ae-a1-e7-ae-97distributed-computing-e9-83-a8-e7-bd-b2-e5-92-8c-e7-a0-b4-e8-a7-a3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/22/cst-studio-2018-e5-88-86-e5-b8-83-e5-bc-8f-e8-ae-a1-e7-ae-97distributed-computing-e9-83-a8-e7-bd-b2-e5-92-8c-e7-a0-b4-e8-a7-a3/" class="article-date">
-      <time datetime="2019-05-22T09:15:48.000Z" itemprop="datePublished">2019-05-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/cst-studio-2018-e5-88-86-e5-b8-83-e5-bc-8f-e8-ae-a1-e7-ae-97distributed-computing-e9-83-a8-e7-bd-b2-e5-92-8c-e7-a0-b4-e8-a7-a3/">CST Studio 2018分布式计算(Distributed Computing)部署和破解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>The Distributed Computing system allows the distribution of independent simulation runs over several computers within a network. We will describe the basic architecture of the system first before focusing on installation and configuration issues.——CST STUDIO SUITE 2018 Help</p>
-</blockquote>
-<p>CST的分布式计算，允许将仿真的求解分别运行在不同的求解端（Solver Server）。构架可以参考CST官方的帮助文档，如下图：<img src="http://35.229.160.101/wp-content/uploads/2019/05/CSTDC.png" alt=""> 对应的CST客户端设置： <img src="http://35.229.160.101/wp-content/uploads/2019/05/CSTDC2.jpg" alt=""></p>
-<ul>
-<li><h2 id="部署方式"><a href="#部署方式" class="headerlink" title="部署方式"></a><strong>部署方式</strong></h2></li>
-<li><p>客户端</p>
-</li>
-</ul>
-<p>客户端安装完整的CST 2018，正常安装即可； CST 2018下载地址： 链接:<a href="https://pan.baidu.com/s/1XP9Pphmz-PThPoC1TpO-GA" target="_blank" rel="noopener">https://pan.baidu.com/s/1XP9Pphmz-PThPoC1TpO-GA</a> 提取码:2919</p>
-<ul>
-<li>CST DC main control</li>
-</ul>
-<p>仅安装DC main control；</p>
-<ul>
-<li>求解服务器</li>
-</ul>
-<p>完整安装CST;</p>
-<ul>
-<li><h2 id="破解"><a href="#破解" class="headerlink" title="破解"></a><strong>破解</strong></h2></li>
-<li><p><strong>客户端</strong></p>
-</li>
-</ul>
-<p>现有的CST 2018很多破解版本是不支持DC分布式计算的，偶然得到一个可以用的Lic文件，可以实现分布式计算。  </p>
-<blockquote>
-<hr>
-<p><strong><em>为避免版权纠纷，此处不提供破解版下载方式。网上广为流传的2018版CST的license是无法实现分布式计算，建议Google搜索关键词：CST 2019.</em></strong> <strong><em>CST 2019 license可以用于CST 2018.</em></strong></p>
-<hr>
-</blockquote>
-<ul>
-<li><strong>DC main control</strong></li>
-</ul>
-<p>打开DC main control，如图： <img src="http://35.229.160.101/wp-content/uploads/2019/05/CSTDC3.jpg" alt=""> 为其分配工作目录，注意，DC作为分布式计算的中心节点，所有的客户端模型数据、求解服务器解算结果，均会发送到DC 上，因此建议为DC 分配存储中间较大、且为SSD的工作空间。</p>
-<ul>
-<li><strong>Solver Server求解服务器</strong></li>
-</ul>
-<p>运行CST DC Solver control <img src="http://35.229.160.101/wp-content/uploads/2019/05/CSTDC4.jpg" alt=""> 为求解服务器分配工作目录、填写DC main control IP地址，其中Number of Servers数量表示该求解服务器贡献于DC的个数。 端口CST 2018默认即可。 点击开始服务：Start Server</p>
-<ul>
-<li><h2 id="部署完成后"><a href="#部署完成后" class="headerlink" title="部署完成后"></a><strong>部署完成后</strong></h2></li>
-</ul>
-<p>部署完成后，在DC 的main control可以看到网络上所有的solver server，如图： <img src="http://35.229.160.101/wp-content/uploads/2019/05/CSTDC5-1.jpg" alt=""></p>
-<ul>
-<li><h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a><strong>如何使用</strong></h2></li>
-</ul>
-<p>以笔记本端运行的CST为例，打开CST后，在菜单栏中设置DC相关信息，填写DC IP地址。 运行CST Main control，在Remote Connection…中输入DC IP地址，点击连接。 <img src="http://35.229.160.101/wp-content/uploads/2019/05/CSTDC6.jpg" alt=""> <img src="http://35.229.160.101/wp-content/uploads/2019/05/CSTDC7.jpg" alt=""> 勾选DC，第一项设置意思是分布式计算在，参数扫描/最优化时，允许DC求解的参数个数。如果你服务器多，这里建议设成较高的值，如果扫参时，CST将会把最大数量的参数组合分配给所有服务器，这将会大大提高扫参速度。十分暴力。</p>
-<ul>
-<li><h2 id="可能问题"><a href="#可能问题" class="headerlink" title="可能问题"></a><strong>可能问题</strong></h2></li>
-<li><p>license的问题</p>
-</li>
-</ul>
-<p>在部署中，出现了：FlexNet Licensing error:-96,7. System Error: 11001 “WinSock: Host not found (HOST_NOT_FOUND)”的错误。 该问题十分蹊跷，因为各项设置已经弄好，各个服务器已经连上了DC，在客户端仿真时，已经显示将不同的任务分配给求解服务器，在连接成功之后，对话框显示：Waiting for license server to respond，等待一会之后直接跳错。如图 <img src="http://35.229.160.101/wp-content/uploads/2019/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190522162938.png" alt=""> 查看日志文件，显示：Could not connect to license to license server(270018@woodybuendia)! Error:License Server machine is down or not responding. <img src="http://35.229.160.101/wp-content/uploads/2019/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190522163446-1.png" alt=""> 直观上看是license服务器问题，一度准备放弃。因为毕竟都说破解版的CST是不能用分布式计算的。 仔细考虑一下整个CST Distributed Computing 整个系统，发现无论是DC main control还是Solver server求解服务器，都没有要求任何license，但是CST又不能不验证许可就可以求解。 我认为CST把整个分布式计算的许可问题放在了客户端，DC中心节点和求解服务器都不要求许可。那么，上述问题就变成DC无法与客户端的许可服务器通信。 用过CST的同学都知道，破解第一步就是替换License文件中的第一行hostname，而这个hostname通常要求替换成计算机名称，例如我的笔记本：woodybuendia，端口默认27000，所以就变成了DC服务器寻早27000@woodybuendia这个许可证服务器。 有网路基础就知道这个地址是没有办法再TCP/IP中解析的。 于是把hostname，直接改成客户端的IP地址即可。。。。顺利实现CST分布式计算。   By Woodybuendia 20190522</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E5%A4%A9%E7%BA%BF%E4%B8%8E%E5%BE%AE%E6%B3%A2/">天线与微波</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-antenna-magus-pro-8-0-e5-92-8ccst-2018-e5-ae-89-e8-a3-85-e4-b8-8e-e7-a0-b4-e8-a7-a3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/07/antenna-magus-pro-8-0-e5-92-8ccst-2018-e5-ae-89-e8-a3-85-e4-b8-8e-e7-a0-b4-e8-a7-a3/" class="article-date">
-      <time datetime="2019-05-07T02:28:57.000Z" itemprop="datePublished">2019-05-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/07/antenna-magus-pro-8-0-e5-92-8ccst-2018-e5-ae-89-e8-a3-85-e4-b8-8e-e7-a0-b4-e8-a7-a3/">Antenna Magus Pro 8.0和CST 2018安装与破解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Antenna Magus是一个非常实用、天线种类很多的快速天线设计软件，最大的优势是集成了许多现有的天线形式，根据输入指标快速设计初步的天线尺寸。 Antenna Magus可以导出CST和Feko模型，软件内也有快速评估工具，可以生成天线性能报告。 Antenna Magus Pro8.0对应CST 2018，两个配合使用。 由于Antenna Magus的license server使用的是CST的license server，因此安装Antenna Magus之前需要事先安装CST 2018. CST 2018下载地址： 链接:<a href="https://pan.baidu.com/s/1XP9Pphmz-PThPoC1TpO-GA" target="_blank" rel="noopener">https://pan.baidu.com/s/1XP9Pphmz-PThPoC1TpO-GA</a> 提取码:2919 复制这段内容后打开百度网盘手机App，操作更方便哦 Antenna Magus Pro8.0下载地址： 链接：<a href="https://pan.baidu.com/s/18\_Scrv5byi6YGuceYLxhUQ" target="_blank" rel="noopener">https://pan.baidu.com/s/18\_Scrv5byi6YGuceYLxhUQ</a> 提取码：tnmy 复制这段内容后打开百度网盘手机App，操作更方便哦</p>
-<h1 id="破解方法："><a href="#破解方法：" class="headerlink" title="破解方法："></a><strong>破解方法：</strong></h1><p>安装破解好CST 2018之后。运行：AntennaMagusPro8.0.0.exe <img src="http://35.229.160.101/wp-content/uploads/2019/05/773fa9b8c61446ad67cec9de40bdf7e.png" alt=""> 安装完成后，从：CST Studio Suite 2018 x64 Crack Only文件夹中拷贝CST_patch.exe文件到Magus安装位置，如:C:\Program Files\Antenna Magus 在AntennaMagus安装文件夹中运行CST_patch； <img src="http://35.229.160.101/wp-content/uploads/2019/05/904bae70ceaa6d4a0c1ef4cd69ed484.png" alt=""> <img src="http://35.229.160.101/wp-content/uploads/2019/05/eb31db3c8009b82424a9eebd5a0a321.png" alt=""> 等待运行完成后，破解完成。 运行AntennaMagus，会出现报错界面，直接点击忽略： <img src="http://35.229.160.101/wp-content/uploads/2019/05/c9dcb39b55dfcc36b5cb204374b65fd.png" alt=""> 打开AntennaMagus界面： <img src="http://35.229.160.101/wp-content/uploads/2019/05/d556080042315e69337dd6465795e46.png" alt=""> Enjoy！ <em><strong>by Woody Buendia</strong></em> <em><strong>20190507</strong></em></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E5%A4%A9%E7%BA%BF%E4%B8%8E%E5%BE%AE%E6%B3%A2/">天线与微波</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-e6-9c-8d-e5-8a-a1-e5-99-a8-e8-bf-9c-e7-a8-8b-e6-a1-8c-e9-9d-a2-e5-ae-89-e8-a3-85matlab-e5-87-ba-e7-8e-b0license-manager-error-103-e7-9a-84-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/05/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-bf-9c-e7-a8-8b-e6-a1-8c-e9-9d-a2-e5-ae-89-e8-a3-85matlab-e5-87-ba-e7-8e-b0license-manager-error-103-e7-9a-84-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/" class="article-date">
-      <time datetime="2019-05-05T07:50:15.000Z" itemprop="datePublished">2019-05-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/05/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-bf-9c-e7-a8-8b-e6-a1-8c-e9-9d-a2-e5-ae-89-e8-a3-85matlab-e5-87-ba-e7-8e-b0license-manager-error-103-e7-9a-84-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/">服务器远程桌面安装MATLAB出现License Manager Error -103的解决办法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>公司用的虚拟化，配了一台win 10的服务器。安装MATLAB 2016a的时候出现License Manager Error -103的错误。</strong> <strong>经查找，是由于：</strong></p>
-<blockquote>
-<p>matlab使用了 FLEXlm进行 liscense管理，而 FLEXlm不支持从远程桌面访问。不过，对 liscense文件稍加修改，就能够使用。 解决方案参考：<a href="https://blog.csdn.net/hezhongla0811/article/details/81226539" target="_blank" rel="noopener">https://blog.csdn.net/hezhongla0811/article/details/81226539</a></p>
-</blockquote>
-<p>需要注意的是，不要在matlab crack文件夹中修改license_standalone.lic文件，亲测这么操作之后，C:\Program Files\MATLAB\R2018a\licenses文件夹中的license****.lic文件，依旧不行。 直接在C:\Program Files\MATLAB\R2018a\licenses文件夹中修改lic文件。 <strong>另外，原博客里面说的有些含糊的地方：</strong> <strong>用 TS_OK SIGN 替换 SIGN</strong> 修改之后的效果：</p>
-<blockquote>
-<p>INCREMENT Aerospace_Blockset MLM 369 permanent uncounted \ VENDOR_STRING=vi=0:at=200:ae=1:lu=300:lo=IN:ei=6257193:lr=1: \ HOSTID=ANY SN=968398 TS_OK SIGN=0D8A1582514C HOSTID=ANY SN=968398 TS_OK SIGN=0D8A1582514C</p>
-</blockquote>
-<p>MATLAB 2018a可靠的下载链接参考下面网页。 <a href="https://www.macxin.com/archives/4722.html" target="_blank" rel="noopener">MATLAB 2018a Win/Mac/Linux 官方原版 完美激活破解版补丁</a></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/MATLAB/">MATLAB</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-e4-ba-8c-e3-80-87-e4-b8-80-e4-b9-9d-e5-b9-b4-e5-9b-9b-e6-9c-88-e4-ba-94-e6-97-a5-c2-b7-e6-b8-85-e6-98-8e" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/04/05/e4-ba-8c-e3-80-87-e4-b8-80-e4-b9-9d-e5-b9-b4-e5-9b-9b-e6-9c-88-e4-ba-94-e6-97-a5-c2-b7-e6-b8-85-e6-98-8e/" class="article-date">
-      <time datetime="2019-04-05T14:05:35.000Z" itemprop="datePublished">2019-04-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/05/e4-ba-8c-e3-80-87-e4-b8-80-e4-b9-9d-e5-b9-b4-e5-9b-9b-e6-9c-88-e4-ba-94-e6-97-a5-c2-b7-e6-b8-85-e6-98-8e/">二〇一九年四月五日·清明</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>今天是2019年4月5日，清明节。 昨天夜里梦到一个场景，依稀记得是在一个雨天，独自一人再回家的路上。最后一段路没有车，是一个陌生人用自行车载着我回去的。梦里彷佛还和这个人有过交谈，但这个人是谁，确实完全与记忆没有关联。 梦中回的家，竟然是爷爷家，梦里的小路和房屋都和记忆中一模一样。湿哒哒的雨天，泥泞的土路。 梦里，最终没有梦到回家，梦境在一个岔路口嘎然而止。 这个清明节，在烟台，天气晴好，刮着大风，完全不像细雨微风、烟柳如墨的江南。以前，每逢清明时节倒是十分厌恶阴雨连绵。可如今，在北方的晴空里，竟然有一丝的怀念。 十年生死两茫茫，不思量，自难忘，千里孤坟何处话凄凉。 ——谨记一个远离家乡无法回去祭奠的清明</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-e7-94-b5-e6-89-ab-e9-98-b5-e5-88-97-ef-bc-9amatlab-e5-bb-ba-e6-a8-a1-e4-b8-8e-e4-bb-bf-e7-9c-9f" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/07/e7-94-b5-e6-89-ab-e9-98-b5-e5-88-97-ef-bc-9amatlab-e5-bb-ba-e6-a8-a1-e4-b8-8e-e4-bb-bf-e7-9c-9f/" class="article-date">
-      <time datetime="2019-03-07T07:40:43.000Z" itemprop="datePublished">2019-03-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/07/e7-94-b5-e6-89-ab-e9-98-b5-e5-88-97-ef-bc-9amatlab-e5-bb-ba-e6-a8-a1-e4-b8-8e-e4-bb-bf-e7-9c-9f/">电扫阵列：MATLAB 建模与仿真</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>电扫阵列：MATLAB 建模与仿真</p>
-<p>Electronically Scanned Arrays: MATLAB Modeling and Simulation</p>
-<p>推荐一本MATLAB 关于天线阵列编程相关的书籍，中文版现在已经不好买了。15年时买了中文版，并辗转从jlqsczw_<a href="mailto:2007@163.com">2007@163.com</a> 得到这本书的英文原版pdf。现共享在这里。</p>
-<p>推荐一本MATLAB 关于天线阵列编程相关的书籍，中文版现在已经不好买了。15年时买了中文版，并辗转从jlqsczw_<a href="mailto:2007@163.com">2007@163.com</a> 得到这本书的英文原版pdf。现共享在这里。</p>
-<p>电扫阵列：MATLAB建模与仿真</p>
-<p>[英] A·D·布朗</p>
-<p>著，汪连栋，孔德培，乔会东 等 译</p>
-<p>Electronically Scanned Arrays: MATLAB Modeling and Simulation</p>
-<p><a href="https://pan.baidu.com/s/1RjtkYCafReFr3Ql9DTI-9w密码" target="_blank" rel="noopener">https://pan.baidu.com/s/1RjtkYCafReFr3Ql9DTI-9w密码</a>: e65s</p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/03/53f5b954N3f65b52c.jpg" alt=""></p>
-<p><img src="http://woodybuendia.site/wp-content/uploads/2019/03/%E7%94%B5%E6%89%AB.png" alt=""></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E5%A4%A9%E7%BA%BF%E4%B8%8E%E5%BE%AE%E6%B3%A2/">天线与微波</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/07/hello-world-1/" class="article-date">
-      <time datetime="2019-03-07T03:28:10.000Z" itemprop="datePublished">2019-03-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/07/hello-world-1/">世界，您好！</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>欢迎使用WordPress。这是您的第一篇文章。编辑或删除它，然后开始写作吧！</p>
-<p>大家好，我是WoodyBuendia，欢迎访问我的小站。<img src="http://35.229.160.101/wp-content/uploads/2019/03/CachedImage_1920_1080_POS4.jpg" alt=""></p>
-<p><a href="https://www.youtube.com/watch?v=1rLWVZVWfdY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=1rLWVZVWfdY</a></p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a>
-    </div>
-
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2020 Woody Buendia
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
-</footer>
-
-    </div>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-    <script>
-        $(document).ready(function() {
-            var backgroundnum = 24;
-            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
-        })
-    </script>
-
-
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
-</div>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
 <script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
 </script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
 
-  <script language="javascript">
-    $(function() {
-        $("a[title]").each(function() {
-            var a = $(this);
-            var title = a.attr('title');
-            if (title == undefined || title == "") return;
-            a.data('title', title).removeAttr('title').hover(
+    
+        <body class="home-body">
+    
+    
+<header class="header index-header">
 
-            function() {
-                var offset = a.offset();
-                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
-                    top: offset.top - a.outerHeight() - 15,
-                    left: offset.left + a.outerWidth()/2 + 1
-                }).fadeIn(function() {
-                    var pop = $(this);
-                    setTimeout(function() {
-                        pop.remove();
-                    }, pop.text().length * 800);
-                });
-            }, function() {
-                $("#anchortitlecontainer").remove();
-            });
-        });
-    });
-</script>
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <a class="home-link" href=/>The Blog of WoodyBuendia.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
 
 
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 文章页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            The Blog of WoodyBuendia.
+            <!-- 文章页  -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+                it's better to burn out than to fade away
+            
+            <!-- 文章页  -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/23/e6-af-ab-e7-b1-b3-e6-b3-a2-e6-97-a0-e7-ba-bf-e9-80-9a-e4-bf-a1-e8-8b-b1-e6-96-87-e5-8e-9f-e7-89-88-e3-80-8amillimeterwavewirelesscommunications-e3-80-8b/" >
+            
+                <span>毫米波无线通信英文原版《MillimeterWaveWirelessCommunications》</span>
+        </a>
+        <div class="abstract-content">
+            《毫米波无线通信》Theodore S. Rappaport原版pdf，Google搜索了很久都没找到，最后是一个专业微信群的同行发给我的，感谢这位朋友。 如有需求请邮件联系。  
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/22/cst-studio-2018-e5-88-86-e5-b8-83-e5-bc-8f-e8-ae-a1-e7-ae-97distributed-computing-e9-83-a8-e7-bd-b2-e5-92-8c-e7-a0-b4-e8-a7-a3/" >
+            
+                <span>CST Studio 2018分布式计算(Distributed Computing)部署和破解</span>
+        </a>
+        <div class="abstract-content">
+            
+The Distributed Computing system allows the distribution of independent simulation runs over several computers within a network. We will describe the basic architecture of the system first before focusing on installation and configuration issues.——CST STUDIO SUITE 2018 Help
+
+CST的分布式计算，允许将仿真的求解分别...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/22</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/07/antenna-magus-pro-8-0-e5-92-8ccst-2018-e5-ae-89-e8-a3-85-e4-b8-8e-e7-a0-b4-e8-a7-a3/" >
+            
+                <span>Antenna Magus Pro 8.0和CST 2018安装与破解</span>
+        </a>
+        <div class="abstract-content">
+            Antenna Magus是一个非常实用、天线种类很多的快速天线设计软件，最大的优势是集成了许多现有的天线形式，根据输入指标快速设计初步的天线尺寸。 Antenna Magus可以导出CST和Feko模型，软件内也有快速评估工具，可以生成天线性能报告。 Antenna Magus Pro8.0对应CST 2018，两个配合使用。 由于Antenna Magus的license server使用的是CST的license server，因此安装Antenna Magus之前需要事先安装CST 2018. CST 2018下载地址： 链接:https://pan.baidu.com/s/1X...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/05/05/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-bf-9c-e7-a8-8b-e6-a1-8c-e9-9d-a2-e5-ae-89-e8-a3-85matlab-e5-87-ba-e7-8e-b0license-manager-error-103-e7-9a-84-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/" >
+            
+                <span>服务器远程桌面安装MATLAB出现License Manager Error -103的解决办法</span>
+        </a>
+        <div class="abstract-content">
+            公司用的虚拟化，配了一台win 10的服务器。安装MATLAB 2016a的时候出现License Manager Error -103的错误。 经查找，是由于：
+
+matlab使用了 FLEXlm进行 liscense管理，而 FLEXlm不支持从远程桌面访问。不过，对 liscense文件稍加修改，就能够使用。 解决方案参考：https://blog.csdn.net/hezhongla0811/article/details/81226539
+
+需要注意的是，不要在matlab crack文件夹中修改license_standalone.lic文件，亲测这么操作之后，C:\Prog...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/05</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/04/05/e4-ba-8c-e3-80-87-e4-b8-80-e4-b9-9d-e5-b9-b4-e5-9b-9b-e6-9c-88-e4-ba-94-e6-97-a5-c2-b7-e6-b8-85-e6-98-8e/" >
+            
+                <span>二〇一九年四月五日·清明</span>
+        </a>
+        <div class="abstract-content">
+            今天是2019年4月5日，清明节。 昨天夜里梦到一个场景，依稀记得是在一个雨天，独自一人再回家的路上。最后一段路没有车，是一个陌生人用自行车载着我回去的。梦里彷佛还和这个人有过交谈，但这个人是谁，确实完全与记忆没有关联。 梦中回的家，竟然是爷爷家，梦里的小路和房屋都和记忆中一模一样。湿哒哒的雨天，泥泞的土路。 梦里，最终没有梦到回家，梦境在一个岔路口嘎然而止。 这个清明节，在烟台，天气晴好，刮着大风，完全不像细雨微风、烟柳如墨的江南。以前，每逢清明时节倒是十分厌恶阴雨连绵。可如今，在北方的晴空里，竟然有一丝的怀念。 十年生死两茫茫，不思量，自难忘，千里孤坟何处话凄凉。 ——谨记一个远离家...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/05</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/03/07/e7-94-b5-e6-89-ab-e9-98-b5-e5-88-97-ef-bc-9amatlab-e5-bb-ba-e6-a8-a1-e4-b8-8e-e4-bb-bf-e7-9c-9f/" >
+            
+                <span>电扫阵列：MATLAB 建模与仿真</span>
+        </a>
+        <div class="abstract-content">
+            电扫阵列：MATLAB 建模与仿真
+Electronically Scanned Arrays: MATLAB Modeling and Simulation
+推荐一本MATLAB 关于天线阵列编程相关的书籍，中文版现在已经不好买了。15年时买了中文版，并辗转从jlqsczw_2007@163.com 得到这本书的英文原版pdf。现共享在这里。
+推荐一本MATLAB 关于天线阵列编程相关的书籍，中文版现在已经不好买了。15年时买了中文版，并辗转从jlqsczw_2007@163.com 得到这本书的英文原版pdf。现共享在这里。
+电扫阵列：MATLAB建模与仿真
+[英] A·D·布朗
+著...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/03/07/hello-world-1/" >
+            
+                <span>世界，您好！</span>
+        </a>
+        <div class="abstract-content">
+            欢迎使用WordPress。这是您的第一篇文章。编辑或删除它，然后开始写作吧！
+大家好，我是WoodyBuendia，欢迎访问我的小站。
+https://www.youtube.com/watch?v=1rLWVZVWfdY
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/page/2/">&lt; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
+    
+</main>
+            <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" alt="avatar" src= /avatar/Misaka.jpg >
+    <div class="profile-name">fi3ework</div>
+    
+    <div class="profile-signature">
+        witness me
+    </div>
+    
+    
+    <div class="profile-social">
+        
+    
+        
+            
+                <a href="mailto:tinywoody@126.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/WoodyBuendia" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                
+                    <span>
+                        <a href= //www.baidu.com target="_black">friendA</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= //www.google.com target="_black">friendB</a>
+                    </span>
+                
+            
+                
+            
+        </div>
+    
+    
+        <div class="about-me">
+            <a href = "/about" >ABOUT ME</a>
+        </div>
+    
+</div>
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:tinywoody@126.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/WoodyBuendia" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 27
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/2020/06/18/hello-world/" >Hello World</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2020/04/21/e7-bd-91-e7-ab-99-e5-85-ac-e5-91-8a-ef-bc-9a-e5-80-92-e8-ae-a1-e6-97-b668-e5-a4-a9-e8-bf-81-e7-a7-bb-e6-88-96-e5-85-b3-e7-ab-99/" >网站公告：倒计时68天迁移或关站</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2020/02/23/e3-80-90matlab-hfss-api-e3-80-91-e9-81-87-e5-88-b0-e9-97-ae-e9-a2-98-e8-af-a5-e5-a6-82-e4-bd-95-e8-a7-a3-e5-86-b3/" >【MATLAB HFSS API】遇到问题该如何解决</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/23</span><a class="archive-post-title" href= "/2019/11/23/e3-80-90-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95-e3-80-91win10-e5-8d-8e-e7-a1-95-e7-ac-94-e8-ae-b0-e6-9c-ac-e9-9f-b3-e9-a2-91-e6-9c-8d-e5-8a-a1-e6-9c-aa-e5-93-8d-e5-ba-94-e6-88-96-e8-80-85-e6-92-ad/" >【解决办法】win10华硕笔记本音频服务未响应或者播放失败请切换输出设备</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2019/11/07/e5-a4-a9-e7-ba-bf-e9-98-b5-e5-88-97-e6-97-81-e7-93-a3-e7-9a-84-e6-8a-91-e5-88-b6/" >天线阵列旁瓣的抑制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2019/11/07/e6-88-91-e7-9a-84-e7-ac-ac-e4-b8-80-e4-b8-aapyhton-e7-a8-8b-e5-ba-8f-ef-bc-9a-e9-80-9a-e8-bf-87-e7-99-be-e5-ba-a6-e5-9c-b0-e5-9b-beapi-e8-87-aa-e5-8a-a8-e6-9f-a5-e8-af-a2-e8-b7-af-e5-86-b5/" >我的第一个Pyhton程序：通过百度地图API自动查询路况</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/04</span><a class="archive-post-title" href= "/2019/09/04/e6-9d-82-e8-b0-88-e8-af-bb-e4-b9-a6/" >杂谈-读书</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/19</span><a class="archive-post-title" href= "/2019/08/19/e5-b8-b8-e7-94-a8-e7-94-b5-e7-a3-81-e4-bb-bf-e7-9c-9f-e8-bd-af-e4-bb-b6/" >常用电磁仿真软件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/2019/07/19/e6-b7-b1-e5-ba-a6-e5-ad-a6-e4-b9-a0-e4-b9-8b-e5-9b-be-e5-83-8f-e7-9b-ae-e6-a0-87-e6-a3-80-e6-b5-8b-e5-88-86-e7-b1-bb-e7-9c-9f-e6-89-8b-e6-8a-8a-e6-89-8b-e6-95-99-e7-a8-8b/" >深度学习之图像目标检测分类-真手把手教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2019/07/18/antenna-magus-pro-2019/" >Antenna Magus Pro 2019 V9.2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2019/07/18/ansys-hfss-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-ef-bc-9a-e4-bb-a5-e8-80-a6-e5-90-88-e5-be-ae-e5-b8-a6-e7-ba-bf-e7-94-b5-e6-a1-a5-e4-b8-ba-e4-be-8b/" >Ansys HFSS优化工具箱的使用：以耦合微带线电桥为例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/2019/07/18/cst-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-e4-bb-a5-e5-88-86-e6-94-af-e7-ba-bf-e7-94-b5-e6-a1-a5-e7-9a-84-e4-bc-98-e5-8c-96-e4-b8-ba-e4-be-8b/" >CST优化工具箱的使用-以分支线电桥的优化为例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/2019/07/15/e5-86-85-e7-bd-91-e7-a9-bf-e9-80-8ffrp-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b/" >内网穿透frp部署记录总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span><a class="archive-post-title" href= "/2019/07/09/e7-bd-91-e7-ab-99-e7-bb-b4-e6-8a-a4-e8-ae-b0-e5-bd-95/" >网站维护记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span><a class="archive-post-title" href= "/2019/07/09/cst-studio-suite-2019/" >CST Studio Suite 2019</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/02</span><a class="archive-post-title" href= "/2019/07/02/hfss-matlab-api-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b/" >HFSS-MATLAB-API 使用教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/28</span><a class="archive-post-title" href= "/2019/05/28/e5-bb-ba-e7-ab-99-e8-ae-b0-e5-bd-95/" >建站记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/27</span><a class="archive-post-title" href= "/2019/05/27/e5-88-a9-e7-94-a8-e7-bc-96-e7-a8-8b-e5-bf-ab-e9-80-9f-e7-94-9f-e6-88-90-e8-be-83-e5-a4-a7-e8-a7-84-e6-a8-a1-e5-8f-af-e9-87-8d-e6-9e-84-e9-98-b5-e5-88-97-e4-b8-8e-e7-bc-96-e8-be-91pin-e4-ba-8c/" >利用编程快速生成较大规模可重构阵列与编辑PIN二极管状态——Part Ⅰ:生成</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/2019/05/24/e3-80-90-e5-b7-a5-e4-bd-9c-e7-ac-94-e8-ae-b0-e3-80-91rfid-e7-b3-bb-e7-bb-9f-e5-b7-a5-e4-bd-9c-e5-8e-9f-e7-90-86-e4-b8-8e920mhz-e8-af-bb-e5-8d-a1-e5-99-a8-e5-a4-a9-e7-ba-bf-e8-ae-be-e8-ae-a1/" >【工作笔记】RFID系统工作原理与920MHz读卡器天线设计</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/e6-af-ab-e7-b1-b3-e6-b3-a2-e6-97-a0-e7-ba-bf-e9-80-9a-e4-bf-a1-e8-8b-b1-e6-96-87-e5-8e-9f-e7-89-88-e3-80-8amillimeterwavewirelesscommunications-e3-80-8b/" >毫米波无线通信英文原版《MillimeterWaveWirelessCommunications》</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/2019/05/23/pdf-ef-bc-9aapplication-note-of-radar-sensing-and-detection-innosent-e8-b0-83-e9-a2-91-e8-bf-9e-e7-bb-ad-e6-b3-a2/" >PDF：Application Note of Radar Sensing and Detection_Innosent_调频连续波</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2019/05/22/cst-studio-2018-e5-88-86-e5-b8-83-e5-bc-8f-e8-ae-a1-e7-ae-97distributed-computing-e9-83-a8-e7-bd-b2-e5-92-8c-e7-a0-b4-e8-a7-a3/" >CST Studio 2018分布式计算(Distributed Computing)部署和破解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/2019/05/07/antenna-magus-pro-8-0-e5-92-8ccst-2018-e5-ae-89-e8-a3-85-e4-b8-8e-e7-a0-b4-e8-a7-a3/" >Antenna Magus Pro 8.0和CST 2018安装与破解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href= "/2019/05/05/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-bf-9c-e7-a8-8b-e6-a1-8c-e9-9d-a2-e5-ae-89-e8-a3-85matlab-e5-87-ba-e7-8e-b0license-manager-error-103-e7-9a-84-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/" >服务器远程桌面安装MATLAB出现License Manager Error -103的解决办法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/2019/04/05/e4-ba-8c-e3-80-87-e4-b8-80-e4-b9-9d-e5-b9-b4-e5-9b-9b-e6-9c-88-e4-ba-94-e6-97-a5-c2-b7-e6-b8-85-e6-98-8e/" >二〇一九年四月五日·清明</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href= "/2019/03/07/e7-94-b5-e6-89-ab-e9-98-b5-e5-88-97-ef-bc-9amatlab-e5-bb-ba-e6-a8-a1-e4-b8-8e-e4-bb-bf-e7-9c-9f/" >电扫阵列：MATLAB 建模与仿真</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href= "/2019/03/07/hello-world-1/" >世界，您好！</a>
+        </li>
+    
+    </div>
   </div>
-</body>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="antenna magus"><span class="iconfont-archer">&#xe606;</span>antenna magus</span>
+    
+        <span class="sidebar-tag-name" data-tags="HFSS"><span class="iconfont-archer">&#xe606;</span>HFSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer">&#xe606;</span>优化</span>
+    
+        <span class="sidebar-tag-name" data-tags="电桥"><span class="iconfont-archer">&#xe606;</span>电桥</span>
+    
+        <span class="sidebar-tag-name" data-tags="遗传算法"><span class="iconfont-archer">&#xe606;</span>遗传算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="CST"><span class="iconfont-archer">&#xe606;</span>CST</span>
+    
+        <span class="sidebar-tag-name" data-tags="RFID"><span class="iconfont-archer">&#xe606;</span>RFID</span>
+    
+        <span class="sidebar-tag-name" data-tags="天线"><span class="iconfont-archer">&#xe606;</span>天线</span>
+    
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="HFSS-Matlab API"><span class="iconfont-archer">&#xe606;</span>HFSS-Matlab API</span>
+    
+        <span class="sidebar-tag-name" data-tags="资源"><span class="iconfont-archer">&#xe606;</span>资源</span>
+    
+        <span class="sidebar-tag-name" data-tags="记录"><span class="iconfont-archer">&#xe606;</span>记录</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="图像目标检测"><span class="iconfont-archer">&#xe606;</span>图像目标检测</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="天线与微波"><span class="iconfont-archer">&#xe60a;</span>天线与微波</span>
+    
+        <span class="sidebar-category-name" data-categories="天线与微波/资源"><span class="iconfont-archer">&#xe60a;</span>天线与微波/资源</span>
+    
+        <span class="sidebar-category-name" data-categories="计算机与互联网"><span class="iconfont-archer">&#xe60a;</span>计算机与互联网</span>
+    
+        <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
+    
+        <span class="sidebar-category-name" data-categories="MATLAB"><span class="iconfont-archer">&#xe60a;</span>MATLAB</span>
+    
+        <span class="sidebar-category-name" data-categories="资源"><span class="iconfont-archer">&#xe60a;</span>资源</span>
+    
+        <span class="sidebar-category-name" data-categories="未分类"><span class="iconfont-archer">&#xe60a;</span>未分类</span>
+    
+        <span class="sidebar-category-name" data-categories="MATLAB/天线与微波"><span class="iconfont-archer">&#xe60a;</span>MATLAB/天线与微波</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Woody Buendia"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    </body>
 </html>
+
+
