@@ -1,0 +1,105 @@
+%Reconfigurable Array Antenna using LumpedRLC to simulate PIN
+%Edit LumpedRLC with Newly added function:hfssAssignLumpedRLC and hfssEditLumpedRLC
+%% Initial antenna parameter
+clear all
+Units = 'mm';
+fc = 2;%GHz
+%Patch 1
+W_p1 = 5.25;
+L_p1 = 10;
+%Patch 2
+W_p2 = 5.25;
+L_p2 = 10;
+%PIN 
+W_pin = 0.4;
+L_pin = 1;
+
+%Array config
+D_long = 6; %Edge to Edge
+D_short = 5;
+M_array = 8;
+N_array = 16;
+
+%RLC
+R_ohm = 1;
+%%
+disp('Sctrip Runing')
+false = 0;
+true = 1;
+fileName = ['Reconfigurable Array'];
+tmpPrjFile = ['D:\MATLAB\matlabHFSSApi\temp',fileName,'.aedt'];
+tmpDataFile = 'D:\MATLAB\matlabHFSSApi\temp\tmpData.m';
+tmpScriptFile = ['D:\MATLAB\matlabHFSSApi\temp\',fileName,'.vbs'];
+
+fid = fopen(tmpScriptFile, 'wt'); % 'wt'表示以文本模式打开文件，可写，覆盖原有内容  
+% 创建一个新的工程并插入一个新的设计  
+hfssNewProject(fid);  
+hfssInsertDesign(fid, fileName);
+%% add vars
+%添加设计变量
+hfssaddVar(fid,'W_p1',W_p1,Units);
+hfssaddVar(fid,'L_p1',L_p1,Units);
+hfssaddVar(fid,'W_p2',W_p2,Units);
+hfssaddVar(fid,'L_p2',L_p2,Units);
+hfssaddVar(fid,'W_pin',W_pin,Units);
+hfssaddVar(fid,'L_pin',L_pin,Units);
+hfssaddVar(fid,'D_long',D_long,Units);
+hfssaddVar(fid,'D_short',D_short,Units);
+hfssaddVar(fid,'R_ohm',R_ohm,'ohm');
+%% Single Reconfigurable patch
+%Patch1
+Name = 'Patch1';
+Start = {'-W_p1/2',0, 0};
+hfssRectangle(fid,Name,'Z',Start,'W_p1','L_p1',Units);
+
+%Pin1
+Name = 'PIN1';
+Start = {'-W_pin/2','L_p1', 0};
+hfssRectangle(fid,Name,'Z',Start,'W_pin','L_pin',Units);
+
+%Patch2
+Name = 'Patch2';
+Start = {'-W_p2/2','L_p1+L_pin', 0};
+hfssRectangle(fid,Name,'Z',Start,'W_p2','L_p2',Units);
+%% Assign boundary
+%PEC
+hfssAssignPE(fid, 'PecP1', {'Patch1'});
+hfssAssignPE(fid, 'PecP2', {'Patch2'});
+%RLC
+iLStart = {0,L_p1, 0};
+iLEnd = {0,L_p1+L_pin, 0};
+hfssAssignLumpedRLC(fid, 'LumpedRLC1', 'PIN1', iLStart, iLEnd,'R_ohm',[],[],Units)
+%% Array
+hfssDuplicateAlongLine(fid, {'Patch1','Patch2','PIN1'}, {0,'L_p1+L_p2+L_pin+D_long', 0}, M_array, Units);
+ObjectList_1{1,1} = 'Patch1';
+ObjectList_2{1, 1} = 'Patch2';
+ObjectList_3{1, 1} = 'PIN1';
+for i = 2:M_array
+    ObjectList_1{1,i} = ['Patch1_',num2str(i-1)];
+    ObjectList_2{1,i} = ['Patch2_',num2str(i-1)];
+    ObjectList_3{1,i} = ['PIN1_',num2str(i-1)];
+end
+hfssDuplicateAlongLine(fid, ObjectList_1, {'max(W_p1,W_p2)+D_short',0, 0}, N_array, Units);
+hfssDuplicateAlongLine(fid, ObjectList_2, {'max(W_p1,W_p2)+D_short',0, 0}, N_array, Units);
+hfssDuplicateAlongLine(fid, ObjectList_3, {'max(W_p1,W_p2)+D_short',0, 0}, N_array, Units);
+
+for i = 2:N_array
+    ObjectList_1{i,1} = ['Patch1_',num2str(7+i-1)];
+    ObjectList_2{i,1} = ['Patch2_',num2str(7+i-1)];
+    ObjectList_3{i,1} = ['PIN1_',num2str(7+i-1)];
+
+end
+for i = 2:M_array
+    for j = 2:N_array
+        ObjectList_1{j,i} = [ObjectList_1{1,i},'_',num2str(j-1)];
+        ObjectList_2{j,i} = [ObjectList_1{1,i},'_',num2str(j-1)];
+        ObjectList_3{j,i} = [ObjectList_1{1,i},'_',num2str(j-1)];
+    end
+end
+
+%% fclose
+fclose(fid);
+disp(tmpScriptFile)
+disp('Sctrip Completed')
+
+

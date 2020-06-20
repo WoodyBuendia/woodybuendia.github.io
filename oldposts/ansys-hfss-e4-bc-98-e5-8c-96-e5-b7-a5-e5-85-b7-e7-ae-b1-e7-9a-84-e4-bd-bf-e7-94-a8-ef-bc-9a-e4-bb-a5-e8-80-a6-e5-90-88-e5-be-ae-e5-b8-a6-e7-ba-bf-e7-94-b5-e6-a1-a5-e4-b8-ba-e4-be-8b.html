@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Woody Buendia">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Woody Buendia">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="为说明Ansys Electronics Desktop（即HFSS俗称海飞丝）中优化工具箱（Optimization tool）的使用，通过Optimization中的遗传算法（GA）为例，优化耦合微带线电桥。 HFSS更新至2019 R2（up to data 20190718）,不过我还在用2019 R1，新版本没找到。 网友投稿，HFSS 2019R2： Ansys Electronics">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ansys HFSS优化工具箱的使用：以耦合微带线电桥为例">
+<meta property="og:url" content="http://woodybuendia.site/oldposts/ansys-hfss-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-ef-bc-9a-e4-bb-a5-e8-80-a6-e5-90-88-e5-be-ae-e5-b8-a6-e7-ba-bf-e7-94-b5-e6-a1-a5-e4-b8-ba-e4-be-8b.html">
+<meta property="og:site_name" content="WoodyBuendia">
+<meta property="og:description" content="为说明Ansys Electronics Desktop（即HFSS俗称海飞丝）中优化工具箱（Optimization tool）的使用，通过Optimization中的遗传算法（GA）为例，优化耦合微带线电桥。 HFSS更新至2019 R2（up to data 20190718）,不过我还在用2019 R1，新版本没找到。 网友投稿，HFSS 2019R2： Ansys Electronics">
+<meta property="og:image" content="http://woodybuendia.site/wp-content/uploads/2019/07/image-17.png">
+<meta property="og:image" content="http://woodybuendia.site/wp-content/uploads/2019/07/image-18-1024x530.png">
+<meta property="og:image" content="http://woodybuendia.site/wp-content/uploads/2019/07/image-19-1024x643.png">
+<meta property="og:image" content="http://woodybuendia.site/wp-content/uploads/2019/07/image-20.png">
+<meta property="og:image" content="http://woodybuendia.site/wp-content/uploads/2019/07/image-21-1024x600.png">
+<meta property="og:image" content="http://woodybuendia.site/wp-content/uploads/2019/07/image-22-1024x639.png">
+<meta property="og:image" content="http://woodybuendia.site/wp-content/uploads/2019/07/image-23-1024x505.png">
+<meta property="og:image" content="blob:http://woodybuendia.site/5efbd207-f0f2-4948-80f3-a76186678986">
+<meta property="og:image" content="http://woodybuendia.site/wp-content/uploads/2019/07/image-24-1024x618.png">
+<meta property="og:image" content="http://woodybuendia.site/wp-content/uploads/2019/07/image-25.png">
+<meta property="article:published_time" content="2019-07-18T07:13:12.000Z">
+<meta property="article:modified_time" content="2020-06-20T03:26:26.691Z">
+<meta property="article:author" content="Woody Buendia">
+<meta property="article:tag" content="HFSS">
+<meta property="article:tag" content="优化">
+<meta property="article:tag" content="电桥">
+<meta property="article:tag" content="遗传算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://woodybuendia.site/wp-content/uploads/2019/07/image-17.png">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    
+    <title>Ansys HFSS优化工具箱的使用：以耦合微带线电桥为例 · The Blog of WoodyBuendia</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <a class="home-link" href=/>The Blog of WoodyBuendia.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+">
+    
+    <!-- 主页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>为说明Ansys Electronics Desktop（即HFSS俗称海飞丝）中优化工具箱（Optimization tool）的使用，通过Optimization中的遗传算法（GA）为例，优化耦合微带线电桥。</p>
+<p>HFSS更新至2019 R2（up to data 20190718）,不过我还在用2019 R1，新版本没找到。</p>
+<p>网友投稿，HFSS 2019R2： <strong>Ansys Electronics Dsktop 2019 R2 Win64</strong><br>链接: <a href="https://pan.baidu.com/s/1Kibax1UOfBEYQfBRf8tOBA" target="_blank" rel="noopener">https://pan.baidu.com/s/1Kibax1UOfBEYQfBRf8tOBA</a> 提取码: 91zv</p>
+<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-17.png" alt=""></p>
+<p>HFSS 俗称海飞丝</p>
+<h2 id="耦合带线"><a href="#耦合带线" class="headerlink" title="耦合带线"></a>耦合带线</h2><p>四端口耦合带线电桥，原理请查阅相关资料，模型如下图：</p>
+<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-18-1024x530.png" alt=""></p>
+<p>耦合线电桥</p>
+<h2 id="HFSS优化工具箱"><a href="#HFSS优化工具箱" class="headerlink" title="HFSS优化工具箱"></a>HFSS优化工具箱</h2><p>HFSS在使用优化工具箱之前，照例，依旧需要将设计到的尺寸用参数变量表示，并且需要在菜单中，将需要优化的参数勾选，才可以在Optimization选项卡中修改。</p>
+<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-19-1024x643.png" alt=""></p>
+<p>添加优化变量，设置数值范围</p>
+<h3 id="新建优化"><a href="#新建优化" class="headerlink" title="新建优化"></a>新建优化</h3><p>添加了变量之后，在左侧工程树中，选中Optimistics，单击右键，添加优化，选择Optimization，如下图所示：</p>
+<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-20.png" alt=""></p>
+<p>添加优化</p>
+<p>当然，添加之前需要正常设置求解和扫频等必须步骤。</p>
+<p>新建优化之后，在Setup Optimization选项卡中，设置优化目标、求解算法、变量等。</p>
+<p>这里电桥的优化仅涉及到S参数，因此较为简单。优化目标（即Cost function）可以通过表达式，表示复杂的目标，根据项目实际自己摸索。</p>
+<h3 id="Optimizer选择和设置"><a href="#Optimizer选择和设置" class="headerlink" title="Optimizer选择和设置"></a>Optimizer选择和设置</h3><p>这里选择Optimizer为MATLAB，选择之后在右侧Setup中可以选择算法，需要注意的是优化参数的个数需要手动填入。<strong>注意看，在Optimizer下方有个Max No of Iterations，指的是优化最大迭代步数，</strong>默认1000。通常建议默认就行，优化开始后观察cost变化曲线，如果几百步内没有下降趋势，那么一般是由于优化变量或参数范围不合理导致，继续优化也没有意义了。</p>
+<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-21-1024x600.png" alt=""></p>
+<h3 id="添加目标函数Cost-Function"><a href="#添加目标函数Cost-Function" class="headerlink" title="添加目标函数Cost Function"></a>添加目标函数Cost Function</h3><p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-22-1024x639.png" alt=""></p>
+<p>设置目标</p>
+<h3 id="选择变量"><a href="#选择变量" class="headerlink" title="选择变量"></a>选择变量</h3><p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-23-1024x505.png" alt=""></p>
+<p>选择变量</p>
+<p>注意，这里的变量不得和第一步，全局变量的范围冲突。</p>
+<p>点击确定后，即可通过左侧工程树下的Optimization右键——分析，计算了。</p>
+<p><img src="blob:http://woodybuendia.site/5efbd207-f0f2-4948-80f3-a76186678986" alt=""></p>
+<h2 id="全局设置：HFSS中添加MATLAB路径"><a href="#全局设置：HFSS中添加MATLAB路径" class="headerlink" title="全局设置：HFSS中添加MATLAB路径"></a>全局设置：HFSS中添加MATLAB路径</h2><p>Tools——Options——General Option</p>
+<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-24-1024x618.png" alt=""></p>
+<p>将MATLAB路径添加值HFSS全局设置中。</p>
+<p><img src="http://woodybuendia.site/wp-content/uploads/2019/07/image-25.png" alt=""></p>
+<p>如此，优化时，HFSS将会自动打开一个MATLAB的新窗口，将每次仿真的结果传递给MATLAB中，由MATLAB optimization tool工具箱中的遗传算法GA来进行迭代，将下一次参数的值传给HFSS，进行下一轮仿真。</p>
+<h2 id="优化结果查看"><a href="#优化结果查看" class="headerlink" title="优化结果查看"></a>优化结果查看</h2><p>在左侧工程树optimization选中，右击，选择View Analysis Result即可查看结果，HFSS会动态显示cost变化，如果cost能随迭代步数显著下降，说明选择的变量是关键变量，且变量优化的范围合理。否则，需要调整优化设置。</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://woodybuendia.site">Woody Buendia</a>
+            <p>原文链接：<a href="http://woodybuendia.site/oldposts/ansys-hfss-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-ef-bc-9a-e4-bb-a5-e8-80-a6-e5-90-88-e5-be-ae-e5-b8-a6-e7-ba-bf-e7-94-b5-e6-a1-a5-e4-b8-ba-e4-be-8b.html">http://woodybuendia.site/oldposts/ansys-hfss-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-ef-bc-9a-e4-bb-a5-e8-80-a6-e5-90-88-e5-be-ae-e5-b8-a6-e7-ba-bf-e7-94-b5-e6-a1-a5-e4-b8-ba-e4-be-8b.html</a>
+            <p>发表日期：<a href="http://woodybuendia.site/oldposts/ansys-hfss-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-ef-bc-9a-e4-bb-a5-e8-80-a6-e5-90-88-e5-be-ae-e5-b8-a6-e7-ba-bf-e7-94-b5-e6-a1-a5-e4-b8-ba-e4-be-8b.html">July 18th 2019, 3:13:12 pm</a>
+            <p>更新日期：<a href="http://woodybuendia.site/oldposts/ansys-hfss-e4-bc-98-e5-8c-96-e5-b7-a5-e5-85-b7-e7-ae-b1-e7-9a-84-e4-bd-bf-e7-94-a8-ef-bc-9a-e4-bb-a5-e8-80-a6-e5-90-88-e5-be-ae-e5-b8-a6-e7-ba-bf-e7-94-b5-e6-a1-a5-e4-b8-ba-e4-be-8b.html">June 20th 2020, 11:26:26 am</a>
+            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- gitalk评论 -->
+
+    <!-- utteranc评论 -->
+
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:tinywoody@126.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/WoodyBuendia" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 26
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/posts/c519e138/" >网站公告：倒计时68天迁移或关站</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/posts/8b9dd0b3/" >【MATLAB HFSS API】遇到问题该如何解决</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/23</span><a class="archive-post-title" href= "/posts/a591c053/" >【解决办法】win10华硕笔记本音频服务未响应或者播放失败请切换输出设备</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/posts/ee19aabb/" >天线阵列旁瓣的抑制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/posts/af6469da/" >我的第一个Pyhton程序：通过百度地图API自动查询路况</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/04</span><a class="archive-post-title" href= "/posts/f85a11f2/" >杂谈-读书</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/19</span><a class="archive-post-title" href= "/posts/cbc78bbc/" >常用电磁仿真软件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href= "/posts/3cbee947/" >深度学习之图像目标检测分类-真手把手教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/posts/9686ac05/" >Antenna Magus Pro 2019 V9.2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/posts/caf626e1/" >Ansys HFSS优化工具箱的使用：以耦合微带线电桥为例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span><a class="archive-post-title" href= "/posts/7ad379db/" >CST优化工具箱的使用-以分支线电桥的优化为例</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/15</span><a class="archive-post-title" href= "/posts/5d6c34a0/" >内网穿透frp部署记录总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span><a class="archive-post-title" href= "/posts/e65408d4/" >网站维护记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span><a class="archive-post-title" href= "/posts/f839a19a/" >CST Studio Suite 2019</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/02</span><a class="archive-post-title" href= "/posts/bb103e19/" >HFSS-MATLAB-API 使用教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/28</span><a class="archive-post-title" href= "/posts/cbe82740/" >建站记录</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/27</span><a class="archive-post-title" href= "/posts/95c7c80e/" >利用编程快速生成较大规模可重构阵列与编辑PIN二极管状态——Part Ⅰ:生成</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href= "/posts/876c3924/" >【工作笔记】RFID系统工作原理与920MHz读卡器天线设计</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/posts/386efdff/" >毫米波无线通信英文原版《MillimeterWaveWirelessCommunications》</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/posts/e0bb75b4/" >PDF：Application Note of Radar Sensing and Detection_Innosent_调频连续波</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/posts/ac6f8e20/" >CST Studio 2018分布式计算(Distributed Computing)部署和破解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href= "/posts/dc7494f2/" >Antenna Magus Pro 8.0和CST 2018安装与破解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/05</span><a class="archive-post-title" href= "/posts/b093272c/" >服务器远程桌面安装MATLAB出现License Manager Error -103的解决办法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span><a class="archive-post-title" href= "/posts/4123a0c2/" >二〇一九年四月五日·清明</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href= "/posts/47beb6a6/" >电扫阵列：MATLAB 建模与仿真</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href= "/posts/bbc48f3a/" >世界，您好！</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="HFSS-Matlab API"><span class="iconfont-archer">&#xe606;</span>HFSS-Matlab API</span>
+    
+        <span class="sidebar-tag-name" data-tags="antenna magus"><span class="iconfont-archer">&#xe606;</span>antenna magus</span>
+    
+        <span class="sidebar-tag-name" data-tags="HFSS"><span class="iconfont-archer">&#xe606;</span>HFSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="优化"><span class="iconfont-archer">&#xe606;</span>优化</span>
+    
+        <span class="sidebar-tag-name" data-tags="电桥"><span class="iconfont-archer">&#xe606;</span>电桥</span>
+    
+        <span class="sidebar-tag-name" data-tags="遗传算法"><span class="iconfont-archer">&#xe606;</span>遗传算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="CST"><span class="iconfont-archer">&#xe606;</span>CST</span>
+    
+        <span class="sidebar-tag-name" data-tags="RFID"><span class="iconfont-archer">&#xe606;</span>RFID</span>
+    
+        <span class="sidebar-tag-name" data-tags="天线"><span class="iconfont-archer">&#xe606;</span>天线</span>
+    
+        <span class="sidebar-tag-name" data-tags="工作笔记"><span class="iconfont-archer">&#xe606;</span>工作笔记</span>
+    
+        <span class="sidebar-tag-name" data-tags="资源"><span class="iconfont-archer">&#xe606;</span>资源</span>
+    
+        <span class="sidebar-tag-name" data-tags="记录"><span class="iconfont-archer">&#xe606;</span>记录</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
+    
+        <span class="sidebar-tag-name" data-tags="图像目标检测"><span class="iconfont-archer">&#xe606;</span>图像目标检测</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="MATLAB"><span class="iconfont-archer">&#xe60a;</span>MATLAB</span>
+    
+        <span class="sidebar-category-name" data-categories="天线与微波"><span class="iconfont-archer">&#xe60a;</span>天线与微波</span>
+    
+        <span class="sidebar-category-name" data-categories="天线与微波/资源"><span class="iconfont-archer">&#xe60a;</span>天线与微波/资源</span>
+    
+        <span class="sidebar-category-name" data-categories="计算机与互联网"><span class="iconfont-archer">&#xe60a;</span>计算机与互联网</span>
+    
+        <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
+    
+        <span class="sidebar-category-name" data-categories="MATLAB/天线与微波"><span class="iconfont-archer">&#xe60a;</span>MATLAB/天线与微波</span>
+    
+        <span class="sidebar-category-name" data-categories="资源"><span class="iconfont-archer">&#xe60a;</span>资源</span>
+    
+        <span class="sidebar-category-name" data-categories="未分类"><span class="iconfont-archer">&#xe60a;</span>未分类</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Woody Buendia"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    </body>
+</html>
+
+

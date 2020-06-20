@@ -1,0 +1,218 @@
+Dim oAnsoftApp
+Dim oDesktop
+Dim oProject
+Dim oDesign
+Dim oEditor
+Dim oModule
+
+Set oAnsoftApp = CreateObject("AnsoftHfss.HfssScriptInterface")
+Set oDesktop = oAnsoftApp.GetAppDesktop()
+oDesktop.RestoreWindow
+Set oProject = oDesktop.NewProject 
+
+oProject.InsertDesign "HFSS", "Reconfigurable Array", "DrivenModal", ""
+Set oDesign = oProject.SetActiveDesign("Reconfigurable Array")
+Set oEditor = oDesign.SetActiveEditor("3D Modeler")
+
+oEditor.ChangeProperty _
+Array("NAME:AllTabs", _
+Array("NAME:LocalVariableTab", _
+Array("NAME:PropServers","LocalVariables"),  _
+Array("NAME:NewProps",  _
+Array("NAME:W_p1", _
+"PropType:=", "VariableProp", "UserDef:=",true,  _
+"Value:=", "5.250000mm")))) 
+
+oEditor.ChangeProperty _
+Array("NAME:AllTabs", _
+Array("NAME:LocalVariableTab", _
+Array("NAME:PropServers","LocalVariables"),  _
+Array("NAME:NewProps",  _
+Array("NAME:L_p1", _
+"PropType:=", "VariableProp", "UserDef:=",true,  _
+"Value:=", "10.000000mm")))) 
+
+oEditor.ChangeProperty _
+Array("NAME:AllTabs", _
+Array("NAME:LocalVariableTab", _
+Array("NAME:PropServers","LocalVariables"),  _
+Array("NAME:NewProps",  _
+Array("NAME:W_p2", _
+"PropType:=", "VariableProp", "UserDef:=",true,  _
+"Value:=", "5.250000mm")))) 
+
+oEditor.ChangeProperty _
+Array("NAME:AllTabs", _
+Array("NAME:LocalVariableTab", _
+Array("NAME:PropServers","LocalVariables"),  _
+Array("NAME:NewProps",  _
+Array("NAME:L_p2", _
+"PropType:=", "VariableProp", "UserDef:=",true,  _
+"Value:=", "10.000000mm")))) 
+
+oEditor.ChangeProperty _
+Array("NAME:AllTabs", _
+Array("NAME:LocalVariableTab", _
+Array("NAME:PropServers","LocalVariables"),  _
+Array("NAME:NewProps",  _
+Array("NAME:W_pin", _
+"PropType:=", "VariableProp", "UserDef:=",true,  _
+"Value:=", "0.400000mm")))) 
+
+oEditor.ChangeProperty _
+Array("NAME:AllTabs", _
+Array("NAME:LocalVariableTab", _
+Array("NAME:PropServers","LocalVariables"),  _
+Array("NAME:NewProps",  _
+Array("NAME:L_pin", _
+"PropType:=", "VariableProp", "UserDef:=",true,  _
+"Value:=", "1.000000mm")))) 
+
+oEditor.ChangeProperty _
+Array("NAME:AllTabs", _
+Array("NAME:LocalVariableTab", _
+Array("NAME:PropServers","LocalVariables"),  _
+Array("NAME:NewProps",  _
+Array("NAME:D_long", _
+"PropType:=", "VariableProp", "UserDef:=",true,  _
+"Value:=", "6.000000mm")))) 
+
+oEditor.ChangeProperty _
+Array("NAME:AllTabs", _
+Array("NAME:LocalVariableTab", _
+Array("NAME:PropServers","LocalVariables"),  _
+Array("NAME:NewProps",  _
+Array("NAME:D_short", _
+"PropType:=", "VariableProp", "UserDef:=",true,  _
+"Value:=", "5.000000mm")))) 
+
+oEditor.ChangeProperty _
+Array("NAME:AllTabs", _
+Array("NAME:LocalVariableTab", _
+Array("NAME:PropServers","LocalVariables"),  _
+Array("NAME:NewProps",  _
+Array("NAME:R_ohm", _
+"PropType:=", "VariableProp", "UserDef:=",true,  _
+"Value:=", "1.000000ohm")))) 
+
+oEditor.CreateRectangle _
+Array("NAME:RectangleParameters", _
+"IsCovered:=", true, _
+"XStart:=", "-W_p1/2", _
+"YStart:=", "0.000000mm", _
+"ZStart:=", "0.000000mm", _
+"Width:=", "W_p1", _
+"Height:=", "L_p1", _
+"WhichAxis:=", "Z"), _
+Array("NAME:Attributes", _
+"Name:=", "Patch1", _
+"Flags:=", "", _
+"Color:=", "(132 132 193)", _
+"Transparency:=", 5.000000e-01, _
+"PartCoordinateSystem:=", "Global", _
+"MaterialName:=", "vacuum", _
+"SolveInside:=", true)
+
+oEditor.CreateRectangle _
+Array("NAME:RectangleParameters", _
+"IsCovered:=", true, _
+"XStart:=", "-W_pin/2", _
+"YStart:=", "L_p1", _
+"ZStart:=", "0.000000mm", _
+"Width:=", "W_pin", _
+"Height:=", "L_pin", _
+"WhichAxis:=", "Z"), _
+Array("NAME:Attributes", _
+"Name:=", "PIN1", _
+"Flags:=", "", _
+"Color:=", "(132 132 193)", _
+"Transparency:=", 5.000000e-01, _
+"PartCoordinateSystem:=", "Global", _
+"MaterialName:=", "vacuum", _
+"SolveInside:=", true)
+
+oEditor.CreateRectangle _
+Array("NAME:RectangleParameters", _
+"IsCovered:=", true, _
+"XStart:=", "-W_p2/2", _
+"YStart:=", "L_p1+L_pin", _
+"ZStart:=", "0.000000mm", _
+"Width:=", "W_p2", _
+"Height:=", "L_p2", _
+"WhichAxis:=", "Z"), _
+Array("NAME:Attributes", _
+"Name:=", "Patch2", _
+"Flags:=", "", _
+"Color:=", "(132 132 193)", _
+"Transparency:=", 5.000000e-01, _
+"PartCoordinateSystem:=", "Global", _
+"MaterialName:=", "vacuum", _
+"SolveInside:=", true)
+
+Set oModule = oDesign.GetModule("BoundarySetup")
+oModule.AssignPerfectE _
+Array("NAME:PecP1", _
+"InfGroundPlane:=", false, _
+"Objects:=", _
+Array("Patch1"))
+
+Set oModule = oDesign.GetModule("BoundarySetup")
+oModule.AssignPerfectE _
+Array("NAME:PecP2", _
+"InfGroundPlane:=", false, _
+"Objects:=", _
+Array("Patch2"))
+
+Set oModule = oDesign.GetModule("BoundarySetup")
+oModule.AssignLumpedRLC Array("NAME:LumpedRLC1", _
+"Objects:=", Array("PIN1"), _
+Array("NAME:CurrentLine", _
+"Start:=", Array("0mm", "10mm", "0mm"), _
+ "End:=",   Array("0mm", "11mm", "0mm")),  _
+"UseResist:=",  true, "Resistance:=", "R_ohm", _
+"UseInduct:=", false, _
+"UseCap:=", false) 
+
+oEditor.DuplicateAlongLine _
+Array("NAME:Selections", _
+"Selections:=", "Patch1,Patch2,PIN1"), _
+Array("NAME:DuplicateToAlongLineParameters", _
+"XComponent:=", "0.000000mm", _
+"YComponent:=", "L_p1+L_p2+L_pin+D_long", _
+"ZComponent:=", "0.000000mm", _
+"NumClones:=", 8), _
+Array("NAME:Options", _
+"DuplicateBoundaries:=", true)
+
+oEditor.DuplicateAlongLine _
+Array("NAME:Selections", _
+"Selections:=", "Patch1,Patch1_1,Patch1_2,Patch1_3,Patch1_4,Patch1_5,Patch1_6,Patch1_7"), _
+Array("NAME:DuplicateToAlongLineParameters", _
+"XComponent:=", "max(W_p1,W_p2)+D_short", _
+"YComponent:=", "0.000000mm", _
+"ZComponent:=", "0.000000mm", _
+"NumClones:=", 16), _
+Array("NAME:Options", _
+"DuplicateBoundaries:=", true)
+
+oEditor.DuplicateAlongLine _
+Array("NAME:Selections", _
+"Selections:=", "Patch2,Patch2_1,Patch2_2,Patch2_3,Patch2_4,Patch2_5,Patch2_6,Patch2_7"), _
+Array("NAME:DuplicateToAlongLineParameters", _
+"XComponent:=", "max(W_p1,W_p2)+D_short", _
+"YComponent:=", "0.000000mm", _
+"ZComponent:=", "0.000000mm", _
+"NumClones:=", 16), _
+Array("NAME:Options", _
+"DuplicateBoundaries:=", true)
+
+oEditor.DuplicateAlongLine _
+Array("NAME:Selections", _
+"Selections:=", "PIN1,PIN1_1,PIN1_2,PIN1_3,PIN1_4,PIN1_5,PIN1_6,PIN1_7"), _
+Array("NAME:DuplicateToAlongLineParameters", _
+"XComponent:=", "max(W_p1,W_p2)+D_short", _
+"YComponent:=", "0.000000mm", _
+"ZComponent:=", "0.000000mm", _
+"NumClones:=", 16), _
+Array("NAME:Options", _
+"DuplicateBoundaries:=", true)
